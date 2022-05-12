@@ -4,18 +4,18 @@ import Footer from '../Footer';
 
 const District = () => {
     return (
-        <div classNAme="district">
+       
+        <div classNAme="districtPage">
             <Navbar />
-            <div>
+            <div className="district">
             <div className="card">
                 <h1>District name</h1>
                 <img src="https://placekitten.com/200/300" />
                 <ul>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
-                  
+                    <li>School Name</li>
+                    <li>School Name</li>
+                    <li>School Name</li>
+                    <li>School Name</li>
                 </ul>
             </div>
 
@@ -23,10 +23,10 @@ const District = () => {
                 <h1>District name</h1>
                 <img src="https://placekitten.com/200/300" />
                 <ul>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
-                    <li><a>School Name</a></li>
+                    <li>School Name</li>
+                    <li>School Name</li>
+                    <li>School Name</li>
+                    <li>School Name</li>
                   
                 </ul>
             </div>
@@ -44,7 +44,7 @@ const District = () => {
             </div>
             </div>
             
-        <Navbar />
+        <Footer />
         </div>
     )
 }

@@ -4,12 +4,12 @@ import NavBar from './views/NavBar';
 import Main from './views/Main';
 import Footer from './views/Footer';
 import District from './views/schoolsDistricts/District';
+import School from './views/schoolsDistricts/School';
 
 function App() {
   return (
     <div className="App">
-      <District />
-      <Footer />
+      <School />
     </div>
   );
 }
