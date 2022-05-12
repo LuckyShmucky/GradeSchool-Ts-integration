@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './views/NavBar';
-import Main from './views/Main'
-import Footer from './views/Footer'
+import Main from './views/Main';
+import Footer from './views/Footer';
+import District from './views/schoolsDistricts/District';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Main />
+      <District />
       <Footer />
     </div>
   );
