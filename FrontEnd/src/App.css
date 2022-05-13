@@ -67,3 +67,6 @@
 .main h1 {
   font-family: 'Dancing Script', cursive;
 }
+.main img{
+  width: 100vw
+}
