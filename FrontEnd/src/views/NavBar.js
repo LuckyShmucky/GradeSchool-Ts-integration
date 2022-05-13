@@ -1,17 +1,19 @@
 import React from 'react'
+import {Link, Outlet} from 'react-router-dom'
+
+
 
 function NavBar() {
     return (
         <div className='nav'>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/districts">Districts</a></li>
-                <li><a href="/schools">Schools</a></li>
-                <li><a href="district-form">Add a District</a></li>
-                <li><a href="school-form">Add a School</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/districts">Districts</Link></li>
+                <li><Link to="/schools">Schools</Link></li>
+                <li><Link to="/district-form">Add a District</Link></li>
+                <li><Link to="/school-form">Add a School</Link></li>
             </ul>
-            <div className='display'>
-            </div>
+            <Outlet />
         </div>
     )
 }

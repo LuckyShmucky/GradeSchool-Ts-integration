@@ -22,3 +22,6 @@ export default App;
 //D86FA3 text color
 //fcf0cc background
 //100406 accent
+//TO DO
+//Fix main page image
+//Build "Add School" and "Add District" forms

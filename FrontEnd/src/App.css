@@ -69,6 +69,7 @@
 .main h1 {
   font-family: 'Dancing Script', cursive;
 }
+<<<<<<< HEAD
 
 /* district styling */
 
@@ -90,3 +91,8 @@
   flex-direction: row;
 }
 
+=======
+.main img{
+  width: 100vw
+}
+>>>>>>> bac4862 (Forms built out but still need styling, main page now has an image, and react router has been installed correctly)

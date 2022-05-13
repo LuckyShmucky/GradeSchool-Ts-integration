@@ -4,7 +4,7 @@ function Main () {
     return (
         <div className='main'>
             <h1>Grade School</h1>
-            <img src='../images/element5-digital-OyCI7Y4y0Bk-unsplash.jpg' alt='School desk with apple and supplies' />
+            <img src='https://gradepowerlearning.com/wp-content/uploads/2017/08/AdobeStock_104330101.jpeg' alt='School desk with apple and supplies' />
             <h3>California's Premier Ranking App for Schools and Districts</h3>
         </div>
     )
