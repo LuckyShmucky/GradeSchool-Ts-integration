@@ -15,7 +15,7 @@ const districtSchema = new Schema ({
     },
     image: {type: String, required: true},
     city: {type: String, required: true},
-    state: {type: String, required: true},
+    salary: {type: Number, required: true},
      
 }, {toJSON: {virtuals: true}})
 
