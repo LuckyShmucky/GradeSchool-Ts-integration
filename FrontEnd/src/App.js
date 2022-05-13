@@ -1,19 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './views/NavBar';
-import Main from './views/Main';
-import Footer from './views/Footer';
-import District from './views/Pages/District';
-import School from './views/Pages/School';
-import Edit from './views/Pages/Edit'
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./views/NavBar";
+import Main from "./views/Main";
+import Footer from "./views/Footer";
+import District from "./views/Pages/District";
+import School from "./views/Pages/School";
+import Edit from "./views/Pages/Edit";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-    <Main />
-      < Footer />
-
+      <Main />
+      <Footer />
     </div>
   );
 }
