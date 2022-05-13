@@ -5,7 +5,7 @@ import Footer from '../Footer';
 const School = () => {
     return (
                 <div classNAme="schoolPage">
-            <Navbar />
+            
             <div className="school">
             <div className="card">
                 <h1>School name</h1>
@@ -28,7 +28,7 @@ const School = () => {
                 <p>text</p>
             </div>
             </div> 
-        <Footer /> 
+        
         </div>
     )
 }
