@@ -7,6 +7,8 @@ import District from "./views/Pages/District";
 import School from "./views/Pages/School";
 import Edit from "./views/Pages/Edit";
 
+
+
 function App() {
   return (
     <div className="App">
