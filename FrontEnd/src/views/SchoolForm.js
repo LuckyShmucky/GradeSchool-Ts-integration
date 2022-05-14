@@ -14,7 +14,15 @@ function School_Form () {
                 <input name='pic' id='pic' className='form-control' />
                 </div>
                 <div className='row' style={{marginBottom: '25px'}}>
-                <label htmlFor='level' style={{marginRight: '85px'}}>Grade Level</label>
+                    <label htmlFor='city' style={{marginRight: '95px'}}>City</label>
+                    <input name='city' id='city' className='form-control' />
+                </div>
+                <div className='row' style={{marginBottom: '25px'}}>
+                    <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
+                    <input name='state' id='state' className='form-control' />
+                </div>
+                <div className='row' style={{marginBottom: '25px'}}>
+                <label htmlFor='level' style={{marginRight: '95px'}}>Grade Level</label>
                 <select>
                     <option id='elementary' className='form-control'>Elementary</option>
                     <option id='middle' className='form-control'>Middle</option>
@@ -23,7 +31,7 @@ function School_Form () {
                 </select>
                 </div>
                 <div className='row' style={{marginBottom: '25px'}}>
-                <label htmlFor='district' style={{marginRight: '55px'}}>District</label>
+                <label htmlFor='district' style={{marginRight: '75px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
                 <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add School' />
