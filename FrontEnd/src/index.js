@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import District_Form from './views/DistrictForm';
 import School_Form from './views/SchoolForm';
+import District from './views/Pages/District';
+import School from './views/Pages/School';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="/districts" element={<District />} />
+        <Route path="/schools" element={<School />} />
         <Route path="/district-form" element={<District_Form />} />
         <Route path="/school-form" element={<School_Form />} />
         <Route path="*" element={<main style={{padding: '1rem'}}><p>There's no there there!</p></main>} />
