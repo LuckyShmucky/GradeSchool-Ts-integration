@@ -21,4 +21,3 @@ const districtSchema = new Schema ({
 
 const District = mongoose.model('District', districtSchema)
 module.exports = District
-
