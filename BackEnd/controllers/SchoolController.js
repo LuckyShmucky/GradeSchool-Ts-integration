@@ -29,6 +29,17 @@ router.get('/:name', async (req, res) =>{
     }
 })
 
+router.get('/:id', async (req, res) =>{
+    try{
+      const foundSchool = await School.findById(req.params.id)
+        res.status(200).json({
+            data: foundSchool
+        })
+        console.log(foundSchool)
+    } catch(err){
+        res.status(200).json(err)
+    }
+})
 
 
 //Create a school
