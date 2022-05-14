@@ -5,20 +5,20 @@ function District_Form() {
         <div className='district-form'>
             <h1>Add a New District</h1>
             <form method="POST" action="/districts">
-                <div className='row'>
-                <label htmlFor='name'>District Name</label>
+                <div className='row' style={{marginBottom: '25px'}}>
+                <label htmlFor='name' style={{marginRight: '15px'}}>District Name</label>
                 <input name='name' id='name' required className='form-control' />
                 </div>
-                <div className='row'>
-                <label htmlFor='pic'>District Picture</label>
+                <div className='row' style={{marginBottom: '25px'}}>
+                <label htmlFor='pic' style={{marginRight: '15px'}}>District Picture</label>
                 <input name='pic' id='pic' className='form-control' />
                 </div>
-                <div className='row'>
-                <label htmlFor='salary'>Substitute Salary Per Day</label>
+                <div className='row' style={{marginBottom: '25px'}}>
+                <label htmlFor='salary' style={{marginRight: '25px'}}>Substitute Salary Per Day</label>
                 <input type='number' required min='50' max='10000' name='salary' id='salary' className='form-control' />
                 </div>
-                <div className='row'>
-                <input className='btn btn-primary' type='submit' value='Add District' />
+                <div className='row' style={{marginBottom: '25px'}}>
+                <input type='submit' value='Add District' style={{borderRadius: '20px', padding: '10px'}} />
                 </div>
             </form>
         </div>
