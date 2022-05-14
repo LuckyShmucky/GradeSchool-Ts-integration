@@ -1,7 +1,7 @@
 //Dependencies
 require('dotenv').config()
 const mongoose = require('mongoose')
-const {Schema } = mongoose
+const { Schema } = mongoose
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -13,11 +13,12 @@ const districtSchema = new Schema ({
         type: String,
         required: true
     },
-    image: {type: String},
+    image: {type: String, required: true},
     city: {type: String, required: true},
-    state: {type: String, required: true},
+    salary: {type: Number, required: true},
      
-})
+}, {toJSON: {virtuals: true}})
 
+const District = mongoose.model('District', districtSchema)
+module.exports = District
 
-module.exports = districtSchema
