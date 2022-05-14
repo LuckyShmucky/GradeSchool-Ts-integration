@@ -38,14 +38,14 @@
 }
 .App {
   background-color: #fcf0cc;
-  color: #D86FA3;
+  color: #d86fa3;
 }
-.nav ul{
+.nav ul {
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
 }
-.nav li{
+.nav li {
   width: 18vw;
   padding-top: 25px;
   padding-bottom: 50px;
@@ -55,18 +55,38 @@
   border-bottom: 1px solid black;
 }
 .nav a:hover {
-  color: blueviolet
+  color: blueviolet;
 }
 .nav a {
   text-decoration: none;
-  color: #D86FA3
+  color: #d86fa3;
 }
 .footer {
   border-top: 1px solid black;
 }
 .main h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
-.main img{
-  width: 100vw
+
+.main img {
+  width: 100vw;
+}
+
+/* district styling */
+/* district/school card */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 30%;
+}
+
+.district {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.school {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
