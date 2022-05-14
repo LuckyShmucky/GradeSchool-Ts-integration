@@ -8,6 +8,8 @@ import District_Form from './views/DistrictForm';
 import School_Form from './views/SchoolForm';
 import District from './views/Pages/District';
 import School from './views/Pages/School';
+import EditSchool from './views/Pages/EditSchool';
+import EditDistrict from './views/Pages/EditDistrict';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +20,8 @@ root.render(
         <Route path="/schools" element={<School />} />
         <Route path="/district-form" element={<District_Form />} />
         <Route path="/school-form" element={<School_Form />} />
+        <Route path="/edit-school-review" element={<EditSchool />} />
+        <Route path="/edit-district-review" element={<EditDistrict />} />
         <Route path="*" element={<main style={{padding: '1rem'}}><p>There's no there there!</p></main>} />
       </Route>
     </Routes>
