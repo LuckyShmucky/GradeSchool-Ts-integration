@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const District = require('../models/District')
+const District = require('../models/district')
 
 //Get all districts
 router.get('/', async (req, res) =>{
