@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
-const { Schema } = mongoose
 
-const CommentSchema = new Schema ({
+
+const CommentSchema = new mongoose.Schema ({
     author: {type: String, default: "Anonymous"},
     content: { type: String, required: true },
-
-}, { toJSON: { virtuals: true }})
+    stars: { type: Number, required: true}
+})
 
 const Comment = mongoose.model('Comment', CommentSchema)
 module.exports = Comment

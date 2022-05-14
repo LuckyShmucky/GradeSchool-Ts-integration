@@ -1,7 +1,7 @@
 //Dependencies
 const express = require('express')
 const router = express.Router()
-const School = require('../models/School')
+const School = require('../models/school')
 
 
 // Get all schools
@@ -48,14 +48,16 @@ router.post('/', async (req, res) =>{
 
 // Creating comments on Schools
 router.post('/:id', async (req, res) =>{
-    console.log(req.body)
+    // console.log(req.body)
     try {
-        const comment = await School.Comment.create(req.body)
-        let foundSchool = await Place.findById(req.params.id)
+        const foundSchool = await School.findById(req.params.id)
+        console.log(foundSchool)
+        const comment = await School.comments.create(req.body)
+        console.log(comment)
         foundSchool.comments.push(comment.id)
         await foundSchool.save()
         res.status(200).json(`Created comment by ${req.body.author}`)
-        process.exit()
+        
         //    res.redirect(`/places/${req.params.id}`)
     } catch(err){
         res.status(500).json(err)
