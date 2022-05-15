@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   )
 
 // CONFIGURATION / MIDDLEWARE 
-// app.use(express.json())
+app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use('/districts', require('./controllers/DistrictController'))

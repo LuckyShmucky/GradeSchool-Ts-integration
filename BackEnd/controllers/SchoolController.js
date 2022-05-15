@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const School = require('../models/school')
-
+const Comment = require('../models/comment')
 
 // Get all schools
 router.get('/', async (req, res) =>{
@@ -62,17 +62,15 @@ router.post('/', async (req, res) =>{
 router.post('/:id', async (req, res) =>{
     // console.log(req.body)
     try {
+        const newComment = await Comment.create(req.body)
         const foundSchool = await School.findById(req.params.id)
-        console.log(foundSchool)
-        const comment = await School.comments.create(req.body)
-        console.log(comment)
-        foundSchool.comments.push(comment.id)
+        foundSchool.comments.push(newComment.id)
         await foundSchool.save()
-        res.status(200).json(`Created comment by ${req.body.author}`)
-        
-        //    res.redirect(`/places/${req.params.id}`)
+        console.log(foundSchool.comments)
+        res.status(200).json(`new comment posted by ${newComment.author}`)
     } catch(err){
         res.status(500).json(err)
+        console.log('this is the error:', err)
     }
   
   })
