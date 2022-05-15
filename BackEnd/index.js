@@ -11,6 +11,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 // CONFIGURATION / MIDDLEWARE 
 app.use(express.json())
+app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use('/districts', require('./controllers/DistrictController'))
 app.use('/schools', require('./controllers/SchoolController'))
@@ -33,6 +34,10 @@ app.get('/schools', (req, res) =>{
     } catch(err){
         res.status(500).json(err)
     }
+})
+
+app.get('*', (req, res) =>{
+    res.render('error')
 })
 
 app.listen(process.env.PORT, () =>{
