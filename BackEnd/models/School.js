@@ -24,6 +24,6 @@ const School = mongoose.model('School', schoolSchema)
 module.exports = School
 module.exports.School = require('./school')
 module.exports.Comment = require('./comment')
-// module.exports = require('./Comment')
+
 
 

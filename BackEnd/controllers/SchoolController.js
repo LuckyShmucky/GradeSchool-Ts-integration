@@ -17,21 +17,10 @@ router.get('/', async (req, res) =>{
     }
 })
 
-// This route is able to find one School by its name
-router.get('/:name', async (req, res) =>{
-    try{
-      const foundSchool = await School.findOne({'name': req.params.name})
-        res.status(200).json({
-            data: foundSchool
-        })
-    } catch(err){
-        res.status(200).json(err)
-    }
-})
-
+// Search for schools by id
 router.get('/:id', async (req, res) =>{
     try{
-      const foundSchool = await School.findById(req.params.id)
+        const foundSchool = await School.findById(req.params.id)
         res.status(200).json({
             data: foundSchool
         })
@@ -41,6 +30,18 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
+// This route is able to find one School by its name 
+// cannot do just schools/:name because id already populates a possible 
+router.get('/schoolNames/:name', async (req, res) =>{
+    try{
+      const foundSchool = await School.findOne({'name': req.params.name})
+        res.status(200).json({
+            data: foundSchool
+        })
+    } catch(err){
+        res.status(200).json(err)
+    }
+})
 
 //Create a school
 router.post('/', async (req, res) =>{
