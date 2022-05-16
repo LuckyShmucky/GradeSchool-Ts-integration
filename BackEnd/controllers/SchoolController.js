@@ -20,7 +20,7 @@ router.get('/', async (req, res) =>{
 // Search for schools by id
 router.get('/:id', async (req, res) =>{
     try{
-        const foundSchool = await School.findById(req.params.id)
+        const foundSchool = await School.findById(req.params.id).populate('comments')
         res.status(200).json({
             data: foundSchool
         })
@@ -32,13 +32,15 @@ router.get('/:id', async (req, res) =>{
 
 // This route is able to find one School by its name 
 // cannot do just schools/:name because id already populates a possible 
-router.get('/schoolNames/:name', async (req, res) =>{
+router.get('/searchNames/:name', async (req, res) =>{
     try{
-      const foundSchool = await School.findOne({'name': req.params.name})
+        //the found school will be populated by the comments' data as well 
+      const foundSchool = await School.findOne({'name': req.params.name}).populate('comments')
         res.status(200).json({
             data: foundSchool
         })
     } catch(err){
+        console.log(err)
         res.status(200).json(err)
     }
 })
