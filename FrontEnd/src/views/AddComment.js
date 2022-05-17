@@ -2,16 +2,19 @@ import React from 'react'
 
 function AddCommentForm() {
     const data = {content: '', author: '', stars: 3}
-    const handleClick = (e) => {
-        e.preventDefault();
-        fetch(`http://localhost:3003/schools/627fddaacb80e81a56b9ab4e`, {
+    const handleClick = async (e) => {
+        e.preventDefault()
+        const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(response => response.json()).then(data => console.log('Success', data)).catch((error) => console.log('Error', error))
-    }
+    })
+const string =  await response.json()
+console.log(string)
+}
     return (
         <div className='comment-add'>
             <form>
