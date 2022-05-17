@@ -3,18 +3,18 @@ import { Link, Outlet } from "react-router-dom";
 
 const School = () => {
   const data = {content: '', author: '', stars: 3}
-  const handleClick = async (e) => {
-    e.preventDefault()
-    const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
-      method: 'DELETE',
-      mode: 'cors',
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  })
-  const string =  await response.json()
-  console.log(string)
-  }
+  // const handleClick = async (e) => {
+  //   e.preventDefault()
+  //   const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
+  //     method: 'DELETE',
+  //     mode: 'cors',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     }
+  // })
+  // const string =  await response.json()
+  // console.log(string)
+  // }
 
   return (
     <div classNAme="schoolPage">
@@ -37,7 +37,7 @@ const School = () => {
               <p>State: CA</p>
               <Link to="/edit-school-review"><button type="submit">Edit School</button></Link>
               <Outlet />
-              <button type="submit" onClick={handleClick}>Delete </button>
+              <button type="submit">Delete </button>
             </div>
           </div>
         </div>
