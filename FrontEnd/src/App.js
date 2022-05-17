@@ -10,19 +10,7 @@ import School from "./views/Pages/School";
 
 function App() {
  
-  const handlePost = async () => {
-    const response = await fetch(`http://localhost:3003/schools/627ff0233fecd55a84bdcfca`,{
-      method: 'DELETE',
-      mode: 'cors',
-      headers:{
-        'Content-Type': 'application/json'
-              } 
-    })
-    const deletedData = await response.json()
-    console.log(deletedData)
-    }
-
-  handlePost()
+  // handlePost()
   return (
     <div className="App">
       <NavBar />

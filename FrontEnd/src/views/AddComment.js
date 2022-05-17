@@ -1,16 +1,8 @@
 import React from 'react'
 
 function AddCommentForm() {
-    const data = {content: '', author: '', stars: 3}
-    const handleClick = () => {
-        fetch(`http://localhost:3003/schools/Helix`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(response => response.json()).then(data => console.log('Success', data)).catch((error) => console.log('Error', error))
-    }
+  
+    
     return (
         <div className='comment-add'>
             <form>

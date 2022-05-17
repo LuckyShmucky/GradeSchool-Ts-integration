@@ -24,13 +24,14 @@ Substitute teachers are independent contractors. As such they have no union and 
 
 ## Code Snippets for Working Fetch Requests 
 ```
+//finding a school by its name
 const handleFetch = async () =>{
     const response = await fetch(`http://localhost:3003/schools/searchNames/${schoolName}`)
     const data = await response.json()
     console.log(data.data)
   }
 
-
+  //Creating a comment
   const handlePost = async () => {
     const response = await fetch(`http://localhost:3003/schools/62830dba0fba2c5b39746d01`,{
       method: 'POST',
@@ -48,6 +49,7 @@ const handleFetch = async () =>{
     console.log(postData)
     }
 
+    //finding a school by id and deleting it
      const response = await fetch(`http://localhost:3003/schools/627ff0233fecd55a84bdcfca`,{
       method: 'DELETE',
       mode: 'cors',
