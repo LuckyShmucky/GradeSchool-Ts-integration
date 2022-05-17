@@ -9,7 +9,40 @@ import School from "./views/Pages/School";
 // import Edit from "./views/Pages/Edit";
 
 function App() {
- 
+//   const createSchool = async () =>{
+//     const response = await fetch('fff', {
+//         method: 'POST',
+//         mode: 'cors',
+//         header: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             "name": "schoolyschool",
+//             "image:": "pic of a prison",
+//             "city": "somewhere you don't want to be"
+//         })
+//     })
+//     const newSchool = await response.json()
+//     console.log(newSchool)
+// }
+const createSchool =  async () =>{
+  const response = await fetch('http://localhost:3003/schools',{
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+            },
+      body: JSON.stringify({
+        "name": "schoolyschool",
+        "city": "somewhere",
+        "image:": "pic of a prison"
+        })
+  })
+  const newSchool = await response.json()
+  console.log(newSchool)
+}
+
+createSchool()
   // handlePost()
   return (
     <div className="App">

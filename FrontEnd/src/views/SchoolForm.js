@@ -1,6 +1,24 @@
 import React from 'react'
 
 function School_Form () {
+
+//     const createSchool = async () =>{
+//         const response = await fetch('http:localhost:3003/schools', {
+//             method: 'POST',
+//             mode: 'cors',
+//             header: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 "name": "schoolyschool",
+//                 "image:": "pic of a prison",
+//                 "city": "somewhere you don't want to be"
+//             })
+//         })
+//         const newSchool = await response.json()
+//         console.log(newSchool)
+//     }
+// createSchool()
     return (
         <div className='school-form'>
             <h1>Add a New School</h1>
@@ -34,7 +52,12 @@ function School_Form () {
                 <label htmlFor='district' style={{marginRight: '75px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add School' />
+                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit'
+                 value='Add School' />
+                 {/* <button onClick={e =>{
+                     e.preventDefault()
+                     createSchool()
+                 }}>Create school</button> */}
             </form>
         </div>
     )
