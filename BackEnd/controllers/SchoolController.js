@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) =>{
         })
         console.log(foundSchool)
     } catch(err){
-        res.status(200).json(err)
+        res.status(500).json(err)
     }
 })
 
@@ -69,7 +69,10 @@ router.post('/:id', async (req, res) =>{
         foundSchool.comments.push(newComment.id)
         await foundSchool.save()
         console.log(foundSchool.comments)
-        res.status(200).json(`new comment posted by ${newComment.author}`)
+        res.status(200).json({
+         message: `new comment posted by ${newComment.author}`,
+         data: newComment
+        })
     } catch(err){
         res.status(500).json(err)
         console.log('this is the error:', err)
@@ -80,7 +83,7 @@ router.post('/:id', async (req, res) =>{
 
 
 
-//find and delete a district by Id
+//find and delete a delete by Id
 router.delete('/:id', async (req, res) =>{
     try{
        const deletedSchool = await School.findByIdAndDelete(req.params.id)
