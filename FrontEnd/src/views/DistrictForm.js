@@ -4,7 +4,7 @@ function District_Form() {
     return(
         <div className='district-form'>
             <h1>Add a New District</h1>
-            <form method="POST" action="/districts">
+            <form>
                 <div className='row' style={{marginBottom: '25px'}}>
                 <label htmlFor='name' style={{marginRight: '15px'}}>District Name</label>
                 <input name='name' id='name' required className='form-control' />
