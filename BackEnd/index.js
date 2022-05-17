@@ -9,12 +9,16 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   )
 
 // CONFIGURATION / MIDDLEWARE 
-app.use(cors)
+app.use(cors({
+    origin: '*'
+}))
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use('/districts', require('./controllers/DistrictController'))
 app.use('/schools', require('./controllers/SchoolController'))
+
+
 
 app.get('/', (req, res) => {
     res.status(200).json({
