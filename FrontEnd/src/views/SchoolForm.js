@@ -1,6 +1,20 @@
 import React from 'react'
 
 function School_Form () {
+    const data = {name: '', image: '', city: '', comments: []}
+    const handleClick = async (e) => {
+        e.preventDefault()
+        const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+const string =  await response.json()
+console.log(string)
+}
     return (
         <div className='school-form'>
             <h1>Add a New School</h1>
@@ -34,7 +48,7 @@ function School_Form () {
                 <label htmlFor='district' style={{marginRight: '75px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add School' />
+                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add School' onClick={handleClick} />
             </form>
         </div>
     )
