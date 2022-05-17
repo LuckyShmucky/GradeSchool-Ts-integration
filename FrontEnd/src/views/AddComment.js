@@ -2,8 +2,9 @@ import React from 'react'
 
 function AddCommentForm() {
     const data = {content: '', author: '', stars: 3}
-    const handleClick = () => {
-        fetch(`http://localhost:3003/schools/Helix`, {
+    const handleClick = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:3003/schools/627fddaacb80e81a56b9ab4e`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
