@@ -13,7 +13,12 @@ router.get('/', async (req, res) =>{
             data: allSchools
         })
     } catch(err){
-        res.status(200).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
@@ -26,7 +31,12 @@ router.get('/:id', async (req, res) =>{
         })
         console.log(foundSchool)
     } catch(err){
-        res.status(200).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
@@ -40,8 +50,12 @@ router.get('/searchNames/:name', async (req, res) =>{
             data: foundSchool
         })
     } catch(err){
-        console.log(err)
-        res.status(200).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
@@ -56,7 +70,12 @@ router.post('/', async (req, res) =>{
           data: newSchool
       })
     } catch(err){
-        res.status(500).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
@@ -71,8 +90,12 @@ router.post('/:id', async (req, res) =>{
         console.log(foundSchool.comments)
         res.status(200).json(`new comment posted by ${newComment.author}`)
     } catch(err){
-        res.status(500).json(err)
-        console.log('this is the error:', err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
   
   })
@@ -89,7 +112,12 @@ router.delete('/:id', async (req, res) =>{
             data: deletedSchool
         })
     } catch(err){
-        res.status(500).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
@@ -103,7 +131,12 @@ router.put('/:id', async (req, res) => {
             data: updatedSchool
         } )
     } catch(err){
-        res.status(500).json(err)
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
     }
 })
 
