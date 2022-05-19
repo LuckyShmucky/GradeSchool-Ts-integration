@@ -16,22 +16,28 @@ const handleClick = async (e) => {
 const string =  await response.json()
 console.log(string)
 }
+//creating a function to display the data
+const createDistrict = () => {
   return (
-  <div classNAme="districtPage" style={{display:'flex', flexDirection:"row"}}>
-      <div className="card" style={{marginLeft:'30px'}}>
-        <div className="distict-content row-auto">
-          <h1>{data.name}</h1>
-          <img src={data.image} />
-            <p>{data.city}</p>
-            <p>{data.state}</p>
-            <p>
-                {data.salary} Salary
-            </p>
-            <Link to="/edit-district-review"><button type="submit" style={{marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Edit District</button></Link>
-            <Outlet />
-              <button type="submit" onClick={handleClick} style={{marginLeft: '5px', marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Delete </button>   
-        </div>
-      </div>
+    <div className="card" style={{marginLeft:'30px'}}>
+    <div className="distict-content row-auto">
+      <h1>{data.name}</h1>
+      <img src={data.image} />
+        <p>{data.city}</p>
+        <p>{data.state}</p>
+        <p>
+            {data.salary} Salary
+        </p>
+        <Link to="/edit-district-review"><button type="submit" style={{marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Edit District</button></Link>
+        <Outlet />
+          <button type="submit" onClick={handleClick} style={{marginLeft: '5px', marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Delete </button>   
+    </div>
+  </div>
+  )
+}
+  return (
+  <div className="districtPage" style={{display:'flex', flexDirection:"row"}}>
+      {createDistrict()}
     </div>
   );
 };
