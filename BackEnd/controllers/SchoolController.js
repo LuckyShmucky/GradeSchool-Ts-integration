@@ -1,8 +1,8 @@
 //Dependencies
 const express = require('express')
 const router = express.Router()
-const School = require('../models/school')
-const Comment = require('../models/comment')
+const School = require('../models/School')
+const Comment = require('../models/Comment')
 
 // Get all schools
 router.get('/', async (req, res) =>{
