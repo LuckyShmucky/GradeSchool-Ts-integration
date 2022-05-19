@@ -45,7 +45,8 @@ console.log(newSchool)
                     <label htmlFor='city' style={{marginRight: '95px'}}>City</label>
                     <input  name='city' id='city' onChange={event => setCity(event.target.value)} className='form-control' />
                 </div>
-                {/* <div className='row' style={{marginBottom: '25px'}}>
+                {/* commented out due to not having this field in the schema yet
+                     <div className='row' style={{marginBottom: '25px'}}>
                     <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
                     <input name='state' id='state' className='form-control' />
                 </div> */}
