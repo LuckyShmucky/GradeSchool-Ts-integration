@@ -7,6 +7,12 @@ import District from "./views/Pages/District";
 import School from "./views/Pages/School";
 
 function App() {
+  const fetchURL_API = async () => {
+     const response = await fetch('https://back-end-for-grade-school.herokuapp.com/schools')
+     const schools = await response.json()
+     console.log(schools)
+  }
+  fetchURL_API()
   return (
     <div className="App">
       <NavBar />
