@@ -28,20 +28,19 @@ const EditSchool = () => {
   console.log(deleteString)
   }
     return(
-        
-             <div className='school-edit-page'>
+<div className='edit-page'>
             <h1>Edit School Review</h1>
             <form className="edit-form">
-                <div className='edit-content'>
-                <label htmlFor='name'>School Name</label>
+                <div className='row edit-content'  style={{marginBottom: '25px'}}>
+                <label htmlFor='name' style={{marginRight: '25px'}}>School Name</label>
                 <input required name='name' id='name' className='form-control' />
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='pic'>School Picture</label>
+                <div className=' row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='pic' style={{marginRight: '25px'}}>School Picture</label>
                 <input name='pic' id='pic' className='form-control' />
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='level'>Grade Level</label>
+                <div className='row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='level' style={{marginRight: '25px'}}>Grade Level</label>
                 <select>
                     <option id='elementary' className='form-control'>Elementary</option>
                     <option id='middle' className='form-control'>Middle</option>
@@ -49,27 +48,26 @@ const EditSchool = () => {
                     <option id='continuation' className='form-control'>Continuation</option>
                 </select>
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='district'>District</label>
+                <div className='row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='district' style={{marginRight: '25px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='district'>District</label>
+                <div className='row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='district' style={{marginRight: '25px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='city'>City:</label>
+                <div className='row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='city'style={{marginRight: '25px'}}>City:</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <div className='edit-content'>
-                <label htmlFor='state'>State:</label>
+                <div className='row edit-content' style={{marginBottom: '25px'}}>
+                <label htmlFor='state' style={{marginRight: '25px'}}>State:</label>
                 <input required name='district' id='district' className='form-control' />
                 </div>
-                <input className='editBtn' type='submit' value='Edit School' onClick={handleEdit} />
-                <input className='deleteBtn' type='submit' value='Delete School' onClick={handleDelete} />
+                <input className='editBtn' type='submit' value='Add School changes' onClick={handleEdit} style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} />
+                <input className='deleteBtn' type='submit' value='Delete School' onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}} />
             </form>
         </div>
-        
     )
 }
 

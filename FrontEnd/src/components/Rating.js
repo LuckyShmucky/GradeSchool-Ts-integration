@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
-import Rating from 'react-simple-star-rating'
+import React, { useState } from "react";
+
 
 const Stars = () => {
-    const [ value, setValue ] = useState(0);
-
-    const handleRating = (value) => {
-        setValue(value)
+  //AVERAGE is the default value of every school added to the school page
+  const AVERAGE = 3;
+  const [value, setValue] = useState(AVERAGE);
+  let rating = <div className="inactive">no rating</div>;
+  const star = () => {
+    let stars = "";
+    for (let i = 0; i < value; i++) {
+      stars += "⭐️";
     }
-    return (
-             <div>
-      <Rating
-        onClick={handleRating}
-        ratingValue={value}
-        size={20}
-        label
-        transition
-        fillColor='orange'
-        emptyColor='gray'
-        className='foo' // Will remove the inline style if applied
-      />
-      {/* Use rating value */}
-      {value}
-        </div>
-    )
-}
+    console.log(stars);
+    return <h2>Rating: {stars}</h2>;
+  };
+  return (
+  <div>
+    {star()}
+ </div>
+  )
+};
 
 export default Stars;
