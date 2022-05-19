@@ -19,7 +19,7 @@ const School = () => {
     const string = await response.json();
     console.log(string);
   };
-  // const [ name, image, city, level, comments ] = data;
+// Creating a function and passing the data 
   const createSchool = () => {
    return (<div className="card" style={{ marginLeft: "30px" }}>
     <div className="school-content row-auto">
