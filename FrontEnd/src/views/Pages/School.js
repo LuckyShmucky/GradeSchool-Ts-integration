@@ -4,7 +4,7 @@ import Star from '../../components/Rating';
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
-
+const [selectedSchoolId, setSelectedSchoolId] = useState('')
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
 
@@ -17,8 +17,13 @@ useEffect(() =>{
     
   }
   getAllSchools()
+}, [])
 
-  }, [])
+//console logging state to make sure this persists
+useEffect(() => {
+    console.log(selectedSchoolId)
+
+  }, [selectedSchoolId])
 
   // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
   const schoolNamesMapped = listOfSchools.map((school, key) => {
@@ -39,7 +44,7 @@ useEffect(() =>{
         {/* <p>{data.district}</p> */}
         {/* <p>{data.city}</p> */}
         {/* <p>{data.state}</p> */}
-        <Link to="/edit-school-review">
+        {/* <Link to="/edit-school-review"> */}
           <button
             type="submit"
             style={{
@@ -47,10 +52,14 @@ useEffect(() =>{
               borderRadius: "15px",
               padding: "10px",
             }}
+            onClick={() =>{
+              // console.log(school.id)
+              setSelectedSchoolId(school.id)
+            }}
           >
             Edit School
           </button>
-        </Link>
+        {/* </Link> */}
         <Outlet />
         <button
           type="submit"
