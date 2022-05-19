@@ -21,4 +21,8 @@ Substitute teachers are independent contractors. As such they have no union and 
 
 
 ## Data Structure Key Points
-- # Grade-School
+- # use this url to interact with api 
+
+```
+fetch('https://back-end-for-grade-school.herokuapp.com/schools')
+```
