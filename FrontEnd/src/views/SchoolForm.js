@@ -12,7 +12,7 @@ function School_Form () {
    }, [schoolName, image, city])
 
     const createSchool = async () => {
-        const response = await fetch(`http://localhost:3003/schools`, {
+        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -45,7 +45,8 @@ console.log(newSchool)
                     <label htmlFor='city' style={{marginRight: '95px'}}>City</label>
                     <input  name='city' id='city' onChange={event => setCity(event.target.value)} className='form-control' />
                 </div>
-                {/* <div className='row' style={{marginBottom: '25px'}}>
+                {/* commented out due to not having this field in the schema yet
+                     <div className='row' style={{marginBottom: '25px'}}>
                     <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
                     <input name='state' id='state' className='form-control' />
                 </div> */}

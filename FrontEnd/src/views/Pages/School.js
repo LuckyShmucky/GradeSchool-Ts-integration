@@ -1,41 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Star from '../../components/Rating';
 
 const School = () => {
-  const data =  {name: "", image: "", district: "", city: "", level: "", state: "", comments: []} ;
-  const handleClick = async (e) => {
-    e.preventDefault();
-    const response = await fetch(
-      `http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`,
-      {
-        method: "DELETE",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const string = await response.json();
-    console.log(string);
-  };
-// Creating a function and passing the data 
-  const createSchool = () => {
-   return (<div className="card" style={{ marginLeft: "30px" }}>
+const [listOfSchools, setListOfSchools] = useState([])
+
+//this use effect makes enables the page to fetch all the schools on mount 
+useEffect(() =>{
+
+  const getAllSchools = async () => {
+    const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools`)
+    const allSchools = await response.json();
+    const foundSchools =  allSchools.data
+    setListOfSchools(foundSchools)
+    //school is an individual index of the data array
+    
+  }
+  getAllSchools()
+
+  }, [])
+
+  // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
+  const schoolNamesMapped = listOfSchools.map((school, key) => {
+    return(
+      <div className="card" key={key} style={{ marginLeft: "30px" }}>
     <div className="school-content row-auto">
+  {/* <h1>{school.name}</h1> */}
       <h1>
-        <Link to="/show-page">{data.name}</Link>
+        <Link to="/show-page">{school.name}</Link>
       </h1>
       <img
-        src={data.image}
+        // src={data.image}
         placeholder="school-picture"
       />
       <div className="schoolContent">
-      <Star />
-        <p>{data.level} School</p>
-        <p>{data.district}</p>
-        <p>{data.city}</p>
-        <p>{data.state}</p>
+      {/* <Star /> */}
+        {/* <p>{data.level} School</p> */}
+        {/* <p>{data.district}</p> */}
+        {/* <p>{data.city}</p> */}
+        {/* <p>{data.state}</p> */}
         <Link to="/edit-school-review">
           <button
             type="submit"
@@ -51,7 +54,7 @@ const School = () => {
         <Outlet />
         <button
           type="submit"
-          onClick={handleClick}
+          // onClick={handleClick}
           style={{
             marginLeft: "5px",
             marginBottom: "25px",
@@ -63,17 +66,76 @@ const School = () => {
         </button>
       </div>
     </div>
-  </div>)
-   }
+  </div>
+       )
+      })
 
-  return (
+  let schoolCard;
+listOfSchools ? schoolCard = 
+  <div
+  className="schoolPage"
+  style={{ display: "flex", flexDirection: "row" }}
+>
+
+</div>
+ :
+  schoolCard =
     <div
       className="schoolPage"
       style={{ display: "flex", flexDirection: "row" }}
     >
-     {createSchool()}
-    </div>
-  );
+    </div>;
+  
+  return (
+    <div>{schoolNamesMapped} </div>
+  )
 };
 
 export default School;
+// Creating a function and passing the data 
+  // const createSchool = () => {
+  //  return (
+  //  <div className="card" style={{ marginLeft: "30px" }}>
+  //   <div className="school-content row-auto">
+  //     <h1>
+  //       {/* <Link to="/show-page">{data.name}</Link> */}
+  //     </h1>
+  //     <img
+  //       // src={data.image}
+  //       placeholder="school-picture"
+  //     />
+  //     <div className="schoolContent">
+  //     {/* <Star /> */}
+  //       {/* <p>{data.level} School</p> */}
+  //       {/* <p>{data.district}</p> */}
+  //       {/* <p>{data.city}</p> */}
+  //       {/* <p>{data.state}</p> */}
+  //       <Link to="/edit-school-review">
+  //         <button
+  //           type="submit"
+  //           style={{
+  //             marginBottom: "25px",
+  //             borderRadius: "15px",
+  //             padding: "10px",
+  //           }}
+  //         >
+  //           Edit School
+  //         </button>
+  //       </Link>
+  //       <Outlet />
+  //       <button
+  //         type="submit"
+  //         // onClick={handleClick}
+  //         style={{
+  //           marginLeft: "5px",
+  //           marginBottom: "25px",
+  //           borderRadius: "15px",
+  //           padding: "10px",
+  //         }}
+  //       >
+  //         Delete
+  //       </button>
+  //     </div>
+  //   </div>
+  // </div>)
+  //  }
