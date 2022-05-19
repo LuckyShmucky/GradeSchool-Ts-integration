@@ -1,10 +1,13 @@
 //Dependencies
+const path = require('path')
+
 require('dotenv').config()
+// require('dotenv').config({ path: '../backend/.env' });
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const cors = require('cors')
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+mongoose.connect('mongodb+srv://Christian:Fc5E1NDTDndOVR6P@myfirstcluster.zfxo9.mongodb.net/GradeSchool', {useNewUrlParser: true, useUnifiedTopology: true}, 
     function(){ console.log('connected to mongoDB ') }
   )
 
