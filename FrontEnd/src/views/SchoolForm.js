@@ -12,7 +12,7 @@ function School_Form () {
    }, [schoolName, image, city])
 
     const createSchool = async () => {
-        const response = await fetch(`http://localhost:3003/schools`, {
+        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools`, {
         method: 'POST',
         mode: 'cors',
         headers: {
