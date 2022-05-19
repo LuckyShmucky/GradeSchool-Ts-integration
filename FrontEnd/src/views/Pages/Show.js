@@ -1,25 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import AddComment from '../AddComment';
 import {Link, Outlet} from 'react-router-dom';
+import Star from '../../components/Rating';
+
 
 const Show = () => {
-  
+  //update event
+  const data = {name: '', image: '', city: '', level: '', comments: []};
+  const handleClick = async (e) => {
+    e.preventDefault()
+    const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+const string =  await response.json()
+console.log(string)
+}
+//Delete Event
+const handleDelete = async (e) => {
+  e.preventDefault()
+  const deleteResponse = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
+   method: 'DELETE',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+const deleteString =  await deleteResponse.json()
+console.log(deleteString)
+}
+
   return (
     <div>
-      <h1>Schools name</h1>
-      <img src="http://placekitten.com/200/300" />
-      <p>star rating 3</p>
-      <p>Grade Level: Middle</p>
-      <p>Middle School</p>
-      <p>District: Oceanside Unified</p>
-      <p>City: San diego</p>
-      <p>State: CA</p>
+      <h1>{data.name}</h1>
+      <img src={data.image} />
+      <Star />
+      <p>{data.level} School</p>
+      <p>{data.district}</p>
+      <p>{data.city}</p>
+      <p>{data.state}</p>
       <h1>Add Comments</h1>
-      <p>Comments Content</p>
+      <p>{data.comments}</p>
       <AddComment />
-      <Link to="/edit-comment"><button type="submit">Edit Comment</button></Link>
+      <Link to="/edit-comment"><button type="submit" onClick={handleClick} style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
-      <button type="submit">Delete Comment</button>
+      <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
     </div>
   );
 };

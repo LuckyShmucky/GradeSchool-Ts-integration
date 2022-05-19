@@ -3,23 +3,7 @@ import {Link, Outlet } from 'react-router-dom'
 
 
 const District = () => {
-    // Looping through the format to create multiple District reviews
-// let districtContent = data.DistrictController.map((district) =>{
-//     return (
-//         <div className="">
-//           <h1>
-//               <a href={`./districts/${district.id}`}>{district.name}</a>
-//           </h1>
-//           <img src={district.pic} alt={district.name} />
-//           <ul>
-//             <p>
-//                 Salary: {district.salary}
-//             </p>
-//           </ul>
-//           </div>
-//     )
-// })
-const data = {name: '', image: '', city: '', salary: 50}
+const data = {name: '', image: '', city: '', state: '', salary: 50}
 const handleClick = async (e) => {
   e.preventDefault()
   const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
@@ -33,17 +17,19 @@ const string =  await response.json()
 console.log(string)
 }
   return (
-    <div classNAme="districtPage">
-      <div className="district">
-        <div className="distict-content">
-          <h1>District name</h1>
-          <img src="https://placekitten.com/200/300" />
+  <div classNAme="districtPage" style={{display:'flex', flexDirection:"row"}}>
+      <div className="card" style={{marginLeft:'30px'}}>
+        <div className="distict-content row-auto">
+          <h1>{data.name}</h1>
+          <img src={data.image} />
+            <p>{data.city}</p>
+            <p>{data.state}</p>
             <p>
-                Teacher Salary: 1000 dollars a day
+                {data.salary} Salary
             </p>
-            <Link to="/edit-district-review"><button type="submit">Edit Review</button></Link>
+            <Link to="/edit-district-review"><button type="submit" style={{marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Edit District</button></Link>
             <Outlet />
-              <button type="submit" onClick={handleClick}>Delete </button>   
+              <button type="submit" onClick={handleClick} style={{marginLeft: '5px', marginBottom: '25px', borderRadius: '15px', padding: '10px'}}>Delete </button>   
         </div>
       </div>
     </div>
