@@ -9,41 +9,67 @@ import School from "./views/Pages/School";
 // import Edit from "./views/Pages/Edit";
 
 function App() {
-//   const createSchool = async () =>{
-//     const response = await fetch('fff', {
-//         method: 'POST',
-//         mode: 'cors',
-//         header: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             "name": "schoolyschool",
-//             "image:": "pic of a prison",
-//             "city": "somewhere you don't want to be"
-//         })
-//     })
-//     const newSchool = await response.json()
-//     console.log(newSchool)
-// }
-const createSchool =  async () =>{
-  const response = await fetch('http://localhost:3003/schools',{
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-            },
-      body: JSON.stringify({
-        "name": "schoolyschool",
-        "city": "somewhere",
-        "image:": "pic of a prison"
-        })
+
+// find all schools is working
+const findAllSchools =  async () =>{
+  const response = await fetch('http://localhost:3003/schools')
+  const newSchool = await response.json()
+  console.log(newSchool)
+}
+// findAllSchools()
+
+
+// post is working 
+const postASchool = async () => {
+  const response = await fetch('http://localhost:3003/schools', {
+  method: 'POST',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "name": "writer",
+    "image": 'pic',
+    "city": 'Place'
+  })
   })
   const newSchool = await response.json()
   console.log(newSchool)
 }
+// postASchool()
 
-createSchool()
-  // handlePost()
+// delete a school route is working
+const deleteAschool = async () => {
+  const response = await fetch(`http://localhost:3003/schools/628592f9c0e11bf078ef862b`, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const deletedSchool = await response.json()
+  console.log(deletedSchool)
+}
+// deleteAschool()
+//update works
+const updateASchool = async () => {
+  const response = await fetch(`http://localhost:3003/schools/627fddaacb80e81a56b9ab4e`, {
+    method: 'PUT',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body : JSON.stringify({
+      "name": "writer",
+      "image": 'pic',
+      "city": 'Place'
+    })
+  })
+  const updatedSchool = await response.json()
+  console.log(updatedSchool)
+}
+// updateASchool()
+
   return (
     <div className="App">
       <NavBar />

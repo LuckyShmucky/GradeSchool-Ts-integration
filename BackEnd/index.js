@@ -42,10 +42,10 @@ app.get('/schools', (req, res) =>{
     }
 })
 
-app.get('*', (req, res) =>{
-    res.render('error')
-})
+    app.get('*', (req, res) =>{
+        res.render('error')
+    })
 
-app.listen(process.env.PORT, () =>{
-    console.log('server is running')
-})
+    app.listen(process.env.PORT, () =>{
+        console.log('server is running')
+    })
