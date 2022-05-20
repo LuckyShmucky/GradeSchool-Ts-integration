@@ -21,16 +21,16 @@ useEffect(() =>{
 
 //console logging state to make sure this persists
 useEffect(() => {
-    console.log(selectedSchoolId)
+    console.log(selectedSchoolId, 'current state for id')
 
   }, [selectedSchoolId])
 
   // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
   const schoolNamesMapped = listOfSchools.map((school, key) => {
+    // console.log(school.id)
     return(
       <div className="card" key={key} style={{ marginLeft: "30px" }}>
     <div className="school-content row-auto">
-  {/* <h1>{school.name}</h1> */}
       <h1>
         <Link to="/show-page">{school.name}</Link>
       </h1>
@@ -40,11 +40,11 @@ useEffect(() => {
       />
       <div className="schoolContent">
       {/* <Star /> */}
-        {/* <p>{data.level} School</p> */}
-        {/* <p>{data.district}</p> */}
-        {/* <p>{data.city}</p> */}
-        {/* <p>{data.state}</p> */}
-        {/* <Link to="/edit-school-review"> */}
+     
+        <Link to={{
+          pathname: `/edit-school-review/${selectedSchoolId}`,
+          state: {stateParam: true }
+        }}>
           <button
             type="submit"
             style={{
@@ -59,7 +59,21 @@ useEffect(() => {
           >
             Edit School
           </button>
-        {/* </Link> */}
+        </Link>
+        <button
+            type="submit"
+            style={{
+              marginBottom: "25px",
+              borderRadius: "15px",
+              padding: "10px",
+            }}
+            onClick={() =>{
+              // console.log(school.id)
+              setSelectedSchoolId(school.id)
+            }}
+          >
+            Select School
+          </button>
         <Outlet />
         <button
           type="submit"
@@ -79,22 +93,7 @@ useEffect(() => {
        )
       })
 
-  let schoolCard;
-listOfSchools ? schoolCard = 
-  <div
-  className="schoolPage"
-  style={{ display: "flex", flexDirection: "row" }}
->
 
-</div>
- :
-  schoolCard =
-    <div
-      className="schoolPage"
-      style={{ display: "flex", flexDirection: "row" }}
-    >
-    </div>;
-  
   return (
     <div>{schoolNamesMapped} </div>
   )
