@@ -12,6 +12,7 @@ import EditSchool from './views/Pages/EditSchool';
 import EditDistrict from './views/Pages/EditDistrict';
 import Show from './views/Pages/Show';
 import EditComment from './views/EditComment';
+import ShowDistrict from './views/Pages/ShowDistrict';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
         <Route path="/edit-school-review/:schoolId" element={<EditSchool />} />
         <Route path="/edit-district-review" element={<EditDistrict />} />
         <Route path="/show-page" element={<Show />} />
+        <Route path="/district-show-page" element={<ShowDistrict />} />
         <Route path="/edit-comment" element={<EditComment />} />
         <Route path="*" element={<main style={{padding: '1rem'}}><p>There's no there there!</p></main>} />
       </Route>

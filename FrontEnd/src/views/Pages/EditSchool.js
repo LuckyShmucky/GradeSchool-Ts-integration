@@ -34,7 +34,7 @@ const EditSchool = () => {
   
     return(
 <div className='edit-page'>
-            <h1>Edit School Review</h1>
+            <h1>Edit School</h1>
             <form className="edit-form">
                 <div className='row edit-content'  style={{marginBottom: '25px'}}>
                 <label htmlFor='name' style={{marginRight: '25px'}}>School Name</label>
