@@ -1,19 +1,24 @@
 import React from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 
 const EditSchool = () => {
-    const data = {name: '', image: '', city: '', comments: []}
-   const handleEdit = async (e) => {
-     e.preventDefault()
-     const editResponse = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
+    const { id } = useParams()
+    // const state = useLocation().state.id
+   
+    console.log(id, 'this is the id for the school')
+   // the handle functions need to be updated
+    const handleEdit = async () => {
+     
+     const response = await fetch(`http://localhost:3003/schools/627fdad83ad7a4f38b26c69b`, {
       method: 'PUT',
        mode: 'cors',
        headers: {
            'Content-Type': 'application/json'
        }, 
-       body: JSON.stringify(data)
+    //    body: JSON.stringify(data)
    })
-   const editString =  await editResponse.json()
-   console.log(editString)
+   const updatedSchool =  await response.json()
+   console.log(updatedSchool)
    }
    const handleDelete = async (e) => {
     e.preventDefault()
