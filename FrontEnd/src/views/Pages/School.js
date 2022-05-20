@@ -1,10 +1,11 @@
+import { list } from "postcss";
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Star from '../../components/Rating';
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
-
+const [totalSchools, setTotalSchools] = useState(undefined)
 
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
@@ -15,13 +16,13 @@ useEffect(() =>{
     const foundSchools =  allSchools.data
     setListOfSchools(foundSchools)
     //school is an individual index of the data array
-    
+    setTotalSchools(listOfSchools.length)
   }
   getAllSchools()
+  // console.log(totalSchools)
 }, [])
 
 //console logging state to make sure this persists
-
 
   const deleteSchool = async (schoolId) =>{
     const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${schoolId}`,{
@@ -50,7 +51,7 @@ useEffect(() =>{
         placeholder="school-picture"
       />
       <div className="schoolContent">
-      {/* <Star /> */}
+      <Star id={school.id} />
      
         <Link to={{
           pathname: `/edit-school-review/${school.id}`,
@@ -85,6 +86,7 @@ useEffect(() =>{
           onClick={e => {            
             e.preventDefault()
             deleteSchool(school.id)
+            setTotalSchools(totalSchools - 1)
           }
 
           }
