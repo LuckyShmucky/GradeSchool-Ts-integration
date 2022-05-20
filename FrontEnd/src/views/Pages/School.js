@@ -45,9 +45,10 @@ useEffect(() =>{
       <h1>
         <Link to="/show-page">{school.name}</Link>
       </h1>
+      <Star />
       <img
         // src={data.image}
-        placeholder="school-picture"
+        placeholder="https://placekitten.com/300/300"
       />
       <div className="schoolContent">
       {/* <Star /> */}
