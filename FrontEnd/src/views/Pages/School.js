@@ -5,6 +5,7 @@ import Star from '../../components/Rating';
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
 const [selectedSchoolId, setSelectedSchoolId] = useState('')
+const [numberOfSchools, setNumberOfSchools] = useState(undefined)
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
 
@@ -14,16 +15,29 @@ useEffect(() =>{
     const foundSchools =  allSchools.data
     setListOfSchools(foundSchools)
     //school is an individual index of the data array
-    
+    setNumberOfSchools(foundSchools.length)
   }
   getAllSchools()
 }, [])
-
+console.log(numberOfSchools, 'total schools')
 //console logging state to make sure this persists
 useEffect(() => {
     console.log(selectedSchoolId, 'current state for id')
 
   }, [selectedSchoolId])
+
+  const deleteSelectedSchool = async () =>{
+    const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${selectedSchoolId}`,{
+      method: 'DELETE',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const deletedSchool = await response.json()
+    console.log(deletedSchool)
+  }
+
 
   // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
   const schoolNamesMapped = listOfSchools.map((school, key) => {
@@ -84,6 +98,12 @@ useEffect(() => {
             borderRadius: "15px",
             padding: "10px",
           }}
+          onClick={e => {            
+            e.preventDefault()
+            deleteSelectedSchool()
+          }
+
+          }
         >
           Delete
         </button>
