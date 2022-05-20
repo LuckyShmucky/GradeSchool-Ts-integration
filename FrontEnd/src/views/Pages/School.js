@@ -4,8 +4,8 @@ import Star from '../../components/Rating';
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
-const [selectedSchoolId, setSelectedSchoolId] = useState('')
-const [numberOfSchools, setNumberOfSchools] = useState(undefined)
+
+
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
 
@@ -15,19 +15,16 @@ useEffect(() =>{
     const foundSchools =  allSchools.data
     setListOfSchools(foundSchools)
     //school is an individual index of the data array
-    setNumberOfSchools(foundSchools.length)
+    
   }
   getAllSchools()
 }, [])
-console.log(numberOfSchools, 'total schools')
+
 //console logging state to make sure this persists
-useEffect(() => {
-    console.log(selectedSchoolId, 'current state for id')
 
-  }, [selectedSchoolId])
 
-  const deleteSelectedSchool = async () =>{
-    const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${selectedSchoolId}`,{
+  const deleteSchool = async (schoolId) =>{
+    const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${schoolId}`,{
       method: 'DELETE',
       mode: 'cors',
       headers: {
@@ -56,7 +53,7 @@ useEffect(() => {
       {/* <Star /> */}
      
         <Link to={{
-          pathname: `/edit-school-review/${selectedSchoolId}`,
+          pathname: `/edit-school-review/${school.id}`,
           state: {stateParam: true }
         }}>
           <button
@@ -68,26 +65,13 @@ useEffect(() => {
             }}
             onClick={() =>{
               // console.log(school.id)
-              setSelectedSchoolId(school.id)
+             
             }}
           >
             Edit School
           </button>
         </Link>
-        <button
-            type="submit"
-            style={{
-              marginBottom: "25px",
-              borderRadius: "15px",
-              padding: "10px",
-            }}
-            onClick={() =>{
-              // console.log(school.id)
-              setSelectedSchoolId(school.id)
-            }}
-          >
-            Select School
-          </button>
+      
         <Outlet />
         <button
           type="submit"
@@ -100,7 +84,7 @@ useEffect(() => {
           }}
           onClick={e => {            
             e.preventDefault()
-            deleteSelectedSchool()
+            deleteSchool(school.id)
           }
 
           }
