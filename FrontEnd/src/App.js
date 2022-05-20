@@ -7,11 +7,11 @@ import District from "./views/Pages/District";
 import School from "./views/Pages/School";
 
 function App() {
-
+ 
   return (
     <div className="App">
       <NavBar />
-      {/* <Main /> */}
+      <Main />
       <Footer />
     </div>
   );

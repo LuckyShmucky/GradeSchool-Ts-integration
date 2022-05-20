@@ -4,7 +4,8 @@ import Star from '../../components/Rating';
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
-const [selectedSchoolId, setSelectedSchoolId] = useState('')
+
+
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
 
@@ -20,10 +21,20 @@ useEffect(() =>{
 }, [])
 
 //console logging state to make sure this persists
-useEffect(() => {
-    console.log(selectedSchoolId, 'current state for id')
 
-  }, [selectedSchoolId])
+
+  const deleteSchool = async (schoolId) =>{
+    const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${schoolId}`,{
+      method: 'DELETE',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const deletedSchool = await response.json()
+    console.log(deletedSchool)
+  }
+
 
   // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
   const schoolNamesMapped = listOfSchools.map((school, key) => {
@@ -42,7 +53,7 @@ useEffect(() => {
       {/* <Star /> */}
      
         <Link to={{
-          pathname: `/edit-school-review/${selectedSchoolId}`,
+          pathname: `/edit-school-review/${school.id}`,
           state: {stateParam: true }
         }}>
           <button
@@ -54,26 +65,13 @@ useEffect(() => {
             }}
             onClick={() =>{
               // console.log(school.id)
-              setSelectedSchoolId(school.id)
+             
             }}
           >
             Edit School
           </button>
         </Link>
-        <button
-            type="submit"
-            style={{
-              marginBottom: "25px",
-              borderRadius: "15px",
-              padding: "10px",
-            }}
-            onClick={() =>{
-              // console.log(school.id)
-              setSelectedSchoolId(school.id)
-            }}
-          >
-            Select School
-          </button>
+      
         <Outlet />
         <button
           type="submit"
@@ -84,6 +82,12 @@ useEffect(() => {
             borderRadius: "15px",
             padding: "10px",
           }}
+          onClick={e => {            
+            e.preventDefault()
+            deleteSchool(school.id)
+          }
+
+          }
         >
           Delete
         </button>
