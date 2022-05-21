@@ -37,6 +37,7 @@ const Edit = () => {
    }
   
     return(
+        <body>
 <div className='edit-page'>
             <h1>Edit District</h1>
             <form className="edit-form">
@@ -83,6 +84,7 @@ const Edit = () => {
                 {/* <input className='deleteBtn' type='submit' value='Delete School' onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}} /> */}
             </form>
         </div>
+        </body>
     )
   /*const data = {name: '', image: '', city: '', salary: 50}
    const handleEdit = async (e) => {

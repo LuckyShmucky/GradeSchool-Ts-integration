@@ -32,6 +32,7 @@ const Show = () => {
   console.log(school.comments)
   
   return (
+    <body>
     <div>
           <h1>{school.name}</h1>
           <img src={school.image} />
@@ -47,6 +48,7 @@ const Show = () => {
           <Outlet />
           <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
     </div>
+    </body>
   );
 };
 

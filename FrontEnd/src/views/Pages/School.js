@@ -101,7 +101,9 @@ useEffect(() =>{
 
 
   return (
+    <body>
     <div className="school">{schoolNamesMapped} </div>
+    </body>
   )
 };
 

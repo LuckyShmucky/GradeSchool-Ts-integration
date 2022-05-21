@@ -100,7 +100,9 @@ const deleteDistrict = async (districtId) =>{
 
 
   return (
-    <div className="district">{districtNamesMapped} </div>
+    <body>
+      <div className="district">{districtNamesMapped} </div>
+    </body>
   )
 };
 /*const data = {name: '', image: '', city: '', state: '', salary: 50}
