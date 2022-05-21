@@ -7,6 +7,7 @@ const Edit = () => {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [city, setCity] = useState('')
+    const [state, setState] = useState('')
     const [salary, setSalary] = useState(50)
    
     const editDistrict = async () => {
@@ -21,6 +22,7 @@ const Edit = () => {
         "name": name,
         "image": image,
         "city": city,
+        "state": state,
         "salary": salary
        })
    })
@@ -43,6 +45,10 @@ const Edit = () => {
                 <div className='row edit-content' style={{marginBottom: '25px'}}>
                 <label htmlFor='city'style={{marginRight: '25px'}}>City:</label>
                 <input required name='city' id='city' onChange={(e) => setCity(e.target.value)} className='form-control' />
+                </div>
+                <div className='row' style={{marginBottom: '25px'}}>
+                    <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
+                    <input name='state' id='state' onChange={event => setState(event.target.value)} className='form-control' />
                 </div>
                 <div className="row edit-content" style={{marginBottom: '25px'}}>
                   <label htmlFor="salary" style={{marginRight: '25px'}}>Substitute Salary Per Day</label>
