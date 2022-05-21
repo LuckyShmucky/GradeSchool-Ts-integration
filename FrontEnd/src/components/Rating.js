@@ -33,7 +33,7 @@ const [rating, setRating] = useState('Not yet Rated')
     
   useEffect(() => {
     console.log(starArr)
-    
+      //please see Christian if this is too much to read
     let stars = ''
 
     if(starArr.length >= 1){
