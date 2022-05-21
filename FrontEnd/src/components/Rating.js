@@ -24,9 +24,9 @@ const Stars = (props) => {
         // console.log(comment.stars)
         initialStarArr.push(comment.stars)
       
-      setStarArr(initialStarArr)
-      // console.log(starArr)
+        // console.log(starArr)
       })
+      setStarArr(initialStarArr)
       // console.log(starNumbersArr, 'stars array for individual card')
     }
     getSchools()
