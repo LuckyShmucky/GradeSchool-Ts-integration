@@ -43,8 +43,8 @@ const deleteDistrict = async (districtId) =>{
   const districtNamesMapped = listOfDistricts.map((district, key) => {
     // console.log(school.id)
     return(
-      <div className="card" key={key} style={{ marginLeft: "30px" }}>
-    <div className="district-content row-auto">
+      <div className="card" key={key} >
+    <div className="district-content" >
       <h1>
         <Link to={`/district-show-page/${district.id}`}>{district.name}</Link>
       </h1>
@@ -53,7 +53,6 @@ const deleteDistrict = async (districtId) =>{
         // src={data.image}
         placeholder="https://placekitten.com/300/300"
       />
-      <div className="districtContent">
       {/* <Star /> */}
      
         <Link to={{
@@ -94,7 +93,6 @@ const deleteDistrict = async (districtId) =>{
         >
           Delete
         </button>
-      </div>
     </div>
   </div>
        )
@@ -102,7 +100,7 @@ const deleteDistrict = async (districtId) =>{
 
 
   return (
-    <div>{districtNamesMapped} </div>
+    <div className="district">{districtNamesMapped} </div>
   )
 };
 /*const data = {name: '', image: '', city: '', state: '', salary: 50}
