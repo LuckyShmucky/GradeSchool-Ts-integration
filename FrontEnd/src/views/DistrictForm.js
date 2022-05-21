@@ -4,6 +4,7 @@ function District_Form() {
     const [districtName, setDistrictName] = useState('')
    const  [image, setImage] = useState('')
    const [city, setCity] = useState('')
+   const [state, setState] = useState('')
    const [salary, setSalary] = useState(50)
 
 
@@ -18,6 +19,7 @@ function District_Form() {
             "name": districtName,
             "image": image,
             "city": city,
+            "state": state,
             "salary": salary
           }
         )
@@ -41,6 +43,10 @@ console.log(newDistrict)
                 <div className='row' style={{marginBottom: '25px'}}>
                     <label htmlFor='city' style={{marginRight: '95px'}}>City</label>
                     <input  name='city' id='city' onChange={event => setCity(event.target.value)} className='form-control' />
+                </div>
+                <div className='row' style={{marginBottom: '25px'}}>
+                    <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
+                    <input name='state' id='state' onChange={event => setState(event.target.value)} className='form-control' />
                 </div>
                 <div>
                     <label htmlFor='salary' style={{marginRight: '95px'}}>Salary</label>
