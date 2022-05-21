@@ -41,7 +41,7 @@ useEffect(() =>{
   const schoolNamesMapped = listOfSchools.map((school, key) => {
     // console.log(school.id)
     return(
-      <div className="card" key={key} style={{ marginLeft: "30px" }}>
+      <div className="card" key={key} >
     <div className="school-content row-auto">
       <h1>
         <Link to={`/show-page/${school.id}`}>{school.name}</Link>
@@ -101,7 +101,7 @@ useEffect(() =>{
 
 
   return (
-    <div>{schoolNamesMapped} </div>
+    <div className="school">{schoolNamesMapped} </div>
   )
 };
 
