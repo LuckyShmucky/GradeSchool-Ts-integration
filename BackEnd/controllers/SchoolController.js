@@ -21,7 +21,6 @@ router.get('/', async (req, res) =>{
         })
     }
 })
-
 // Search for schools by id
 router.get('/:id', async (req, res) =>{
     try{
@@ -39,7 +38,6 @@ router.get('/:id', async (req, res) =>{
         })
     }
 })
-
 // This route is able to find one School by its name 
 // cannot do just schools/:name because id already populates a possible 
 router.get('/searchNames/:name', async (req, res) =>{
@@ -58,7 +56,6 @@ router.get('/searchNames/:name', async (req, res) =>{
         })
     }
 })
-
 //Create a school
 router.post('/', async (req, res) =>{
     //if the body of the request is a falsy value the function will end
@@ -78,7 +75,6 @@ router.post('/', async (req, res) =>{
         })
     }
 })
-
 // Creating comments on Schools
 router.post('/:id', async (req, res) =>{
     // console.log(req.body)
@@ -99,10 +95,6 @@ router.post('/:id', async (req, res) =>{
     }
   
   })
-
-
-
-
 //find and delete a district by Id  
 router.delete('/:id', async (req, res) =>{
     try{
@@ -120,7 +112,6 @@ router.delete('/:id', async (req, res) =>{
         })
     }
 })
-
 // deleting comments by Id
 router.delete('/deleteComments/:id', async (req, res) =>{
     try{
@@ -138,8 +129,6 @@ router.delete('/deleteComments/:id', async (req, res) =>{
         })
     }
 })
-
-
 router.put('/:id', async (req, res) => {
     //if the body of the request is a falsy value the function will end
     if (req.body === false) return;
@@ -158,7 +147,6 @@ router.put('/:id', async (req, res) => {
         })
     }
 })
-
 router.put('/updateComments/:id', async (req, res) => {
     //if the body of the request is a falsy value the function will end
     if (req.body === false) return;
