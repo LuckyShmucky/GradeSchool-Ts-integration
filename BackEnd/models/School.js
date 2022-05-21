@@ -15,6 +15,8 @@ const schoolSchema = new Schema ({
     image: {type: String, placeholder: "https://placekitten.com/300/300"},
     city: {type: String, required: true},
     state: {type: String, required: true},
+    district: {type: String, required: true},
+    level: {type: String, enum: ['Elementary', 'Middle', 'High', 'Continuation']},
     comments: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"

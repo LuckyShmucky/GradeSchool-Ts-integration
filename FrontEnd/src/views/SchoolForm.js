@@ -27,7 +27,6 @@ function School_Form () {
     })
 const newSchool =  await response.json()
 }
-// createSchool()
     return (
         <body>
         <div className='school-form'>
