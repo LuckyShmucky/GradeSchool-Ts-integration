@@ -24,7 +24,7 @@ root.render(
         <Route path="/district-form" element={<District_Form />} />
         <Route path="/school-form" element={<School_Form />} />
         <Route path="/edit-school-review/:schoolId" element={<EditSchool />} />
-        <Route path="/edit-district-review" element={<EditDistrict />} />
+        <Route path="/edit-district-review/:districtID" element={<EditDistrict />} />
         <Route path="/show-page" element={<Show />} />
         <Route path="/district-show-page" element={<ShowDistrict />} />
         <Route path="/edit-comment" element={<EditComment />} />

@@ -1,10 +1,11 @@
+import { list } from "postcss";
 import React, {useState, useEffect} from "react";
 import {Link, Outlet } from 'react-router-dom';
 import Star from '../../components/Rating'
 
-
 const District = () => {
 const [listOfDistricts, setListOfDistricts] = useState([])
+const [totalDistricts, setTotalDistricts] = useState(undefined)
 const [selectedDistrictId, setSelectedDistrictId] = useState('')
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
@@ -15,16 +16,28 @@ useEffect(() =>{
     const foundDistricts =  allDistricts.data
     setListOfDistricts(foundDistricts)
     //school is an individual index of the data array
+    setTotalDistricts(listOfDistricts.length)
     
   }
   getAllDistricts()
 }, [])
 
+const deleteDistrict = async (districtId) =>{
+  const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtId}`,{
+    method: 'DELETE',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const deletedDistrict = await response.json()
+  console.log(deletedDistrict)
+}
 //console logging state to make sure this persists
-useEffect(() => {
+/*useEffect(() => {
     console.log(selectedDistrictId, 'current state for id')
 
-  }, [selectedDistrictId])
+  }, [selectedDistrictId])*/
 
   // console.log(listOfSchools, 'this is the log for list of schools outside useEffect')
   const districtNamesMapped = listOfDistricts.map((district, key) => {
@@ -44,7 +57,7 @@ useEffect(() => {
       {/* <Star /> */}
      
         <Link to={{
-          pathname: `/edit-district-review/${selectedDistrictId}`,
+          pathname: `/edit-district-review/${district.id}`,
           state: {stateParam: true }
         }}>
           <button
@@ -56,26 +69,12 @@ useEffect(() => {
             }}
             onClick={() =>{
               // console.log(school.id)
-              setSelectedDistrictId(district.id)
+              //setSelectedDistrictId(district.id)
             }}
           >
             Edit District
           </button>
         </Link>
-        <button
-            type="submit"
-            style={{
-              marginBottom: "25px",
-              borderRadius: "15px",
-              padding: "10px",
-            }}
-            onClick={() =>{
-              // console.log(school.id)
-              setSelectedDistrictId(district.id)
-            }}
-          >
-            Select District
-          </button>
         <Outlet />
         <button
           type="submit"
@@ -86,6 +85,12 @@ useEffect(() => {
             borderRadius: "15px",
             padding: "10px",
           }}
+          onClick={e => {
+            e.preventDefault()
+            deleteDistrict(district.id)
+            setTotalDistricts(totalDistricts - 1)
+          }
+          }
         >
           Delete
         </button>
