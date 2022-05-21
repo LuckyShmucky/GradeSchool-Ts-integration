@@ -45,12 +45,11 @@ console.log(newSchool)
                     <label htmlFor='city' style={{marginRight: '95px'}}>City</label>
                     <input  name='city' id='city' onChange={event => setCity(event.target.value)} className='form-control' />
                 </div>
-                {/* commented out due to not having this field in the schema yet
                      <div className='row' style={{marginBottom: '25px'}}>
                     <label htmlFor='state' style={{marginRight: '95px'}}>State</label>
                     <input name='state' id='state' className='form-control' />
-                </div> */}
-                {/* <div className='row' style={{marginBottom: '25px'}}>
+                </div> 
+                <div className='row' style={{marginBottom: '25px'}}>
                 <label htmlFor='level' style={{marginRight: '95px'}}>Grade Level</label>
                 <select>
                     <option id='elementary' className='form-control'>Elementary</option>
@@ -62,7 +61,7 @@ console.log(newSchool)
                 <div className='row' style={{marginBottom: '25px'}}>
                 <label htmlFor='district' style={{marginRight: '75px'}}>District</label>
                 <input required name='district' id='district' className='form-control' />
-                </div> */}
+                </div>
                 <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add School' onClick={event => {
                      event.preventDefault()
                     createSchool()
