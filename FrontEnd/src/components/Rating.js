@@ -32,7 +32,7 @@ const [rating, setRating] = useState('Not yet Rated')
   }, [])
     
   useEffect(() => {
-    console.log(starArr)
+    
       //please see Christian if this is too much to read
     let stars = ''
 
@@ -56,10 +56,10 @@ const [rating, setRating] = useState('Not yet Rated')
         for (let i = 0; i < averageRating; i++){
           stars += '⭐'
         }
-        console.log(stars)
+      
         setRating(stars)
        }
-       console.log(stars)
+      //  console.log(stars)
   }, [starArr])
 
   return (
