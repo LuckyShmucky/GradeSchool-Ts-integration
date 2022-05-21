@@ -1,63 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AddComment from '../AddComment';
 import {Link, Outlet, useParams} from 'react-router-dom';
 import Star from '../../components/Rating';
 
 
 const ShowDistrict = () => {
-    const districtId = useParams()
-    useEffect(() =>{
-
-        const getDistrict = async () => {
-          const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtId}`)
+    const districtParams = useParams()
+    const [district, setDistrict] = useState({})
+    const getDistrict = async () => {
+          const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtParams.districtId}`)
           const myDistrict = await response.json();
           const foundDistrict =  myDistrict.data
-          console.log(myDistrict)
+          setDistrict(foundDistrict)
         }
-        getDistrict()
-        // console.log(totalSchools)
-      }, [])
-  //update event
-  const data = {name: '', image: '', city: '', state: '', salary: 50, comments: []};
-  const handleClick = async (e) => {
+    
+    //Delete Event
+    const handleDelete = async (e) => {
     e.preventDefault()
-    const response = await fetch(`http://localhost:3003/districts/627fdad83ad7a4f38b26c69b`, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-})
-const string =  await response.json()
-console.log(string)
-}
-//Delete Event
-const handleDelete = async (e) => {
-  e.preventDefault()
-  const deleteResponse = await fetch(`http://localhost:3003/districts/627fdad83ad7a4f38b26c69b`, {
-   method: 'DELETE',
-    mode: 'cors',
-    headers: {
-        'Content-Type': 'application/json'
+    const deleteResponse = await fetch(`http://localhost:3003/districts/627fdad83ad7a4f38b26c69b`, {
+    method: 'DELETE',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const deleteString =  await deleteResponse.json()
     }
-})
-const deleteString =  await deleteResponse.json()
-console.log(deleteString)
-}
-
+    getDistrict()
   return (
     <div>
-      <h1>{data.name}</h1>
-      <img src={data.image} />
+      <h1>{district.name}</h1>
+      <img src={district.image} />
       <Star />
-      <p>${data.salary}/day</p>
-      <p>{data.city}</p>
-      <p>{data.state}</p>
+      <p>${district.salary}/day</p>
+      <p>{district.city}</p>
+      <p>{district.state}</p>
       <h1>Add Comments</h1>
-      <p>{data.comments}</p>
+      {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}</div>)}
       <AddComment />
-      <Link to="/edit-comment"><button type="submit" onClick={handleClick} style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
+      <Link to="/edit-comment"><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
       <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
     </div>
