@@ -17,7 +17,7 @@ const ShowDistrict = () => {
     //Delete Event
     const handleDelete = async (e) => {
     e.preventDefault()
-    const deleteResponse = await fetch(`http://localhost:3003/districts/627fdad83ad7a4f38b26c69b`, {
+    const deleteResponse = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/deleteCommets/${districtParams.districtId}`, {
     method: 'DELETE',
         mode: 'cors',
         headers: {
@@ -37,8 +37,8 @@ const ShowDistrict = () => {
       <p>{district.state}</p>
       <h1>Add Comments</h1>
       {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}</div>)}
-      <AddComment />
-      <Link to="/edit-comment"><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
+      <AddComment id={districtParams.districtId}/>
+      <Link to={{pathname:"/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
       <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
     </div>

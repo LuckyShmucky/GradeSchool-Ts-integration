@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 
-function AddCommentForm(id) {
+function AddDistrictCommentForm(id) {
     const [content, setContent] = useState('')
     const [author, setAuthor] = useState('Anonymous')
     const [stars, setStars] = useState(3)
     const handleClick = async () => {
-        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${id}`, {
+        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${id}`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -43,4 +43,4 @@ const string =  await response.json()
     )
 }
 
-export default AddCommentForm
+export default AddDistrictCommentForm
