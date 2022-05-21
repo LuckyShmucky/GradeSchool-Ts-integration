@@ -9,7 +9,7 @@ const [totalSchools, setTotalSchools] = useState(undefined)
 
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
-
+ 
   const getAllSchools = async () => {
     const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools`)
     const allSchools = await response.json();
