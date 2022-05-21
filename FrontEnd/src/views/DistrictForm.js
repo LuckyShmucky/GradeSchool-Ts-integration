@@ -23,8 +23,8 @@ function District_Form() {
         )
     })
 const newDistrict =  await response.json()
+console.log(newDistrict)
 }
-// createSchool()
     return (
         <body>
         <div className='district-form'>
