@@ -103,7 +103,7 @@ router.post('/:id', async (req, res) =>{
 
 
 
-//find and delete a district by Id
+//find and delete a district by Id  
 router.delete('/:id', async (req, res) =>{
     try{
        const deletedSchool = await School.findByIdAndDelete(req.params.id)
@@ -120,6 +120,25 @@ router.delete('/:id', async (req, res) =>{
         })
     }
 })
+
+// deleting comments by Id
+router.delete('/deleteComments/:id', async (req, res) =>{
+    try{
+       const deletedComment = await Comment.findByIdAndDelete(req.params.id)
+        res.status(200).json({
+            message: `Deleted comment with id:${req.params.id}`,
+            data: deletedComment
+        })
+    } catch(err){
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
+    }
+})
+
 
 router.put('/:id', async (req, res) => {
     //if the body of the request is a falsy value the function will end
@@ -139,5 +158,25 @@ router.put('/:id', async (req, res) => {
         })
     }
 })
+
+router.put('/updateComments/:id', async (req, res) => {
+    //if the body of the request is a falsy value the function will end
+    if (req.body === false) return;
+    try{
+       const updatedComments = await Comment.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(200).json({
+            message: `Updated comment with id:${req.params.id}`,
+            data: updatedComments
+        } )
+    } catch(err){
+        res.status(err.status || 500)
+        res.json({
+            err: {
+                message: err.message
+            }
+        })
+    }
+})
+
 
 module.exports = router
