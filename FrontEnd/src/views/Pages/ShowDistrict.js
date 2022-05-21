@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddComment from '../AddComment';
-import {Link, Outlet} from 'react-router-dom';
+import {Link, Outlet, useParams} from 'react-router-dom';
 import Star from '../../components/Rating';
 
 
 const ShowDistrict = () => {
+    const districtId = useParams()
+    useEffect(() =>{
+
+        const getDistrict = async () => {
+          const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtId}`)
+          const myDistrict = await response.json();
+          const foundDistrict =  myDistrict.data
+          console.log(myDistrict)
+        }
+        getDistrict()
+        // console.log(totalSchools)
+      }, [])
   //update event
   const data = {name: '', image: '', city: '', state: '', salary: 50, comments: []};
   const handleClick = async (e) => {

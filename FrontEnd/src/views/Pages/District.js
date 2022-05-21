@@ -6,7 +6,7 @@ import Star from '../../components/Rating'
 const District = () => {
 const [listOfDistricts, setListOfDistricts] = useState([])
 const [totalDistricts, setTotalDistricts] = useState(undefined)
-const [selectedDistrictId, setSelectedDistrictId] = useState('')
+//const [selectedDistrictId, setSelectedDistrictId] = useState('')
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
 
@@ -46,9 +46,9 @@ const deleteDistrict = async (districtId) =>{
       <div className="card" key={key} style={{ marginLeft: "30px" }}>
     <div className="district-content row-auto">
       <h1>
-        <Link to="/district-show-page">{district.name}</Link>
+        <Link to={`/district-show-page/${district.id}`}>{district.name}</Link>
       </h1>
-      <Star />
+      <Star id={district.id}/>
       <img
         // src={data.image}
         placeholder="https://placekitten.com/300/300"

@@ -44,7 +44,7 @@ useEffect(() =>{
       <div className="card" key={key} style={{ marginLeft: "30px" }}>
     <div className="school-content row-auto">
       <h1>
-        <Link to="/show-page">{school.name}</Link>
+        <Link to={`/show-page/${school.id}`}>{school.name}</Link>
       </h1>
       <Star id={school.id} />
       <img
