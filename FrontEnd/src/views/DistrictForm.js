@@ -32,6 +32,7 @@ console.log(newDistrict)
 }
 // createSchool()
     return (
+        <body>
         <div className='district-form'>
             <h1>Add a New District</h1>
             <form>
@@ -75,6 +76,7 @@ console.log(newDistrict)
                     }} />
             </form>
         </div>
+        </body>
     )
     /*const data = {name: '', image: '', city: '', salary: 50}
     const handleClick = async (e) => {

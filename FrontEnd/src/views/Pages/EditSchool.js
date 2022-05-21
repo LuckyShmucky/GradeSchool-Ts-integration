@@ -33,6 +33,7 @@ const EditSchool = () => {
    }
   
     return(
+        <body>
 <div className='edit-page'>
             <h1>Edit School</h1>
             <form className="edit-form">
@@ -75,6 +76,7 @@ const EditSchool = () => {
                 {/* <input className='deleteBtn' type='submit' value='Delete School' onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}} /> */}
             </form>
         </div>
+        </body>
     )
 }
 

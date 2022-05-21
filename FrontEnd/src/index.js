@@ -13,9 +13,11 @@ import EditDistrict from './views/Pages/EditDistrict';
 import Show from './views/Pages/Show';
 import EditComment from './views/EditComment';
 import ShowDistrict from './views/Pages/ShowDistrict';
+import Main from './views/Main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
@@ -32,6 +34,7 @@ root.render(
       </Route>
     </Routes>
   </BrowserRouter>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

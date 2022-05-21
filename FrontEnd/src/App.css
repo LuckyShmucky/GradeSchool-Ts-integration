@@ -40,6 +40,11 @@
   background-color: #fcf0cc;
   color: #d86fa3;
 }
+
+body {
+  height: 100vh;
+}
+
 .nav ul {
   list-style-type: none;
   display: flex;

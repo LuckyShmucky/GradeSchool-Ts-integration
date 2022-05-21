@@ -34,6 +34,7 @@ console.log(deleteString)
 }
 
   return (
+    <body>
     <div>
       <h1>{data.name}</h1>
       <img src={data.image} />
@@ -49,6 +50,7 @@ console.log(deleteString)
       <Outlet />
       <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
     </div>
+    </body>
   );
 };
 

@@ -30,6 +30,7 @@ console.log(newSchool)
 }
 // createSchool()
     return (
+        <body>
         <div className='school-form'>
             <h1>Add a New School</h1>
             <form>
@@ -69,6 +70,7 @@ console.log(newSchool)
                     }} />
             </form>
         </div>
+        </body>
     )
 }
 
