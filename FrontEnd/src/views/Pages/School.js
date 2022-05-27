@@ -2,6 +2,8 @@ import { list } from "postcss";
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Star from '../../components/Rating';
+import NavBar from "../NavBar";
+import Footer from "../Footer";
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
@@ -87,7 +89,9 @@ useEffect(() =>{
 
   return (
     <body>
-    <div className="school">{schoolNamesMapped} </div>
+      <NavBar />
+      <div className="school">{schoolNamesMapped} </div>
+      <Footer />
     </body>
   )
 };

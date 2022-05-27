@@ -36,13 +36,13 @@
     transform: rotate(360deg);
   }
 }
-.App {
-  background-color: #fcf0cc;
-  color: #d86fa3;
-}
 
 body {
   height: 100vh;
+  background-color: #fcf0cc;
+  color: #d86fa3;
+  text-align: center;
+  text-decoration: none;
 }
 
 .nav ul {
@@ -115,6 +115,7 @@ body {
 .edit-page {
   height: 50vh;
 }
+
 
 
 

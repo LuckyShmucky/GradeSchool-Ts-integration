@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 const EditSchool = () => {
     const { schoolId } = useParams()
@@ -33,6 +35,7 @@ const EditSchool = () => {
     return(
         <body>
 <div className='edit-page'>
+            <NavBar />
             <h1>Edit School</h1>
             <form className="edit-form">
                 <div className='row edit-content'  style={{marginBottom: '25px'}}>
@@ -72,6 +75,7 @@ const EditSchool = () => {
                 }}
                     style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} />
             </form>
+            <Footer />
         </div>
         </body>
     )

@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import NavBar from './NavBar'
+import Footer from './Footer'
 
 function District_Form() {
     const [districtName, setDistrictName] = useState('')
@@ -30,6 +32,7 @@ console.log(newDistrict)
     return (
         <body>
         <div className='district-form'>
+            <NavBar />
             <h1>Add a New District</h1>
             <form>
                 <div className='row' style={{marginBottom: '25px'}}>
@@ -49,14 +52,15 @@ console.log(newDistrict)
                     <input name='state' id='state' onChange={event => setState(event.target.value)} className='form-control' />
                 </div>
                 <div>
-                    <label htmlFor='salary' style={{marginRight: '95px'}}>Salary</label>
+                    <label htmlFor='salary' style={{marginRight: '165px'}}>Salary</label>
                     <input name='salary' id='salary' className='form-control' onChange={event => setSalary(event.target.value)} type='number' min='50' max='10000' required/>
                 </div>
-                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} type='submit' value='Add District' onClick={event => {
+                <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px', marginTop: '25px'}} type='submit' value='Add District' onClick={event => {
                      event.preventDefault()
                     createDistrict()
                     }} />
             </form>
+            <Footer />
         </div>
         </body>
     )

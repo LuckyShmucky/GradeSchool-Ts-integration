@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import NavBar from './NavBar'
+import Footer from './Footer'
 
 function EditDistrictCommentForm(id) {
     const [content, setContent] = useState('')
@@ -22,6 +24,7 @@ const string =  await response.json()
 }
     return (
         <div className='comment-edit'>
+            <NavBar />
             <form>
             <div className='row' style={{marginTop: '25px'}}> 
                     <label htmlFor='content'>Content</label>
@@ -37,6 +40,7 @@ const string =  await response.json()
                     </div>
                     <input style={{marginBottom: '25px', borderRadius: '15px', padding: '10px'}} type="submit" value="Edit Comment" onClick={handleClick} />
             </form>
+            <Footer />
         </div>
     )
 }

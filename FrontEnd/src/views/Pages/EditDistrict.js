@@ -1,5 +1,7 @@
 import React, {useState } from "react";
 import { useParams } from 'react-router-dom';
+import NavBar from "../NavBar";
+import Footer from "../Footer"
 
 
 const Edit = () => {
@@ -32,6 +34,7 @@ const Edit = () => {
     return(
         <body>
 <div className='edit-page'>
+            <NavBar />
             <h1>Edit District</h1>
             <form className="edit-form">
                 <div className='row edit-content'  style={{marginBottom: '25px'}}>
@@ -61,6 +64,7 @@ const Edit = () => {
                 }}
                     style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}} />
             </form>
+            <Footer />
         </div>
         </body>
     )

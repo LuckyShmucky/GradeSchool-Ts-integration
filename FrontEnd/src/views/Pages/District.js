@@ -2,6 +2,8 @@ import { list } from "postcss";
 import React, {useState, useEffect} from "react";
 import {Link, Outlet } from 'react-router-dom';
 import Star from '../../components/Rating'
+import NavBar from "../NavBar";
+import Footer from "../Footer"
 
 const District = () => {
 const [listOfDistricts, setListOfDistricts] = useState([])
@@ -83,7 +85,9 @@ const deleteDistrict = async (districtId) =>{
 
   return (
     <body>
+      <NavBar />
       <div className="district">{districtNamesMapped} </div>
+      <Footer />
     </body>
   )
 };

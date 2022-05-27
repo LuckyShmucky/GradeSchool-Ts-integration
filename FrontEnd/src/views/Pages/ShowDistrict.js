@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import AddComment from '../AddComment';
 import {Link, Outlet, useParams} from 'react-router-dom';
 import Star from '../../components/Rating';
+import NavBar from "../NavBar";
+import Footer from "../Footer"
 
 
 const ShowDistrict = () => {
@@ -29,6 +31,7 @@ const ShowDistrict = () => {
     getDistrict()
   return (
     <div>
+      <NavBar />
       <h1>{district.name}</h1>
       <img src={district.image} />
       <Star />
@@ -36,11 +39,11 @@ const ShowDistrict = () => {
       <p>{district.city}</p>
       <p>{district.state}</p>
       <h1>Add Comments</h1>
-      {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}</div>)}
-      <AddComment id={districtParams.districtId}/>
-      <Link to={{pathname:"/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
+      {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}       <Link to={{pathname:"/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
-      <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
+      <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button></div>)}
+      <AddComment id={districtParams.districtId}/>
+      <Footer />
     </div>
   );
 };
