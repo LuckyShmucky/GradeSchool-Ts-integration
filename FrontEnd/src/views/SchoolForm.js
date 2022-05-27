@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import NavBar from './NavBar'
+import Footer from './Footer'
 
 function School_Form () {
    const [schoolName, setSchoolName] = useState('')
@@ -30,6 +32,7 @@ const newSchool =  await response.json()
     return (
         <body>
         <div className='school-form'>
+            <NavBar />
             <h1>Add a New School</h1>
             <form>
                 <div className='row' style={{marginBottom: '25px'}}>
@@ -66,6 +69,7 @@ const newSchool =  await response.json()
                     createSchool()
                     }} />
             </form>
+            <Footer />
         </div>
         </body>
     )

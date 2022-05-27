@@ -20,7 +20,7 @@ root.render(
   
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
+        <Route path="/" element={<App />} />
         <Route path="/districts" element={<District />} />
         <Route path="/schools" element={<School />} />
         <Route path="/district-form" element={<District_Form />} />
@@ -31,7 +31,7 @@ root.render(
         <Route path="/district-show-page/:districtId" element={<ShowDistrict />} />
         <Route path="/edit-comment" element={<EditComment />} />
         <Route path="*" element={<main style={{padding: '1rem'}}><p>There's no there there!</p></main>} />
-      </Route>
+
     </Routes>
   </BrowserRouter>
   
