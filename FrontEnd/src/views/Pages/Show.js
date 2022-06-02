@@ -37,7 +37,7 @@ const Show = () => {
           <NavBar />
           <h1>{school.name}</h1>
           <img src={school.image} />
-          <Star />
+          <Star id={schoolParams.schoolId}/>
           <p>{school.level} School</p>
           <p>{school.district}</p>
           <p>{school.city}</p>
