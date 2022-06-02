@@ -7,7 +7,7 @@ const Stars = (props) => {
   const initialStarArr = []
 const [rating, setRating] = useState('Not yet Rated')
   // this runs on mount
-  useEffect(() =>{
+useEffect(() =>{
     //fetching an individual school by an id that is passed by props and is populated by its comments
     const getSchools = async () => {
       const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${props.id}`, {
@@ -18,7 +18,8 @@ const [rating, setRating] = useState('Not yet Rated')
         }
       })
       const schoolPopulated = await response.json()
-      
+      console.log(props)
+      console.log(schoolPopulated)
      //mapping out all the comments and pushing the stars number to initialStarArr
       schoolPopulated.data.comments.map(comment => {
         initialStarArr.push(comment.stars)

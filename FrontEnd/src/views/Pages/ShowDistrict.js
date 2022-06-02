@@ -34,7 +34,7 @@ const ShowDistrict = () => {
       <NavBar />
       <h1>{district.name}</h1>
       <img src={district.image} />
-      <Star />
+      <Star id={districtParams.districtId}/>
       <p>${district.salary}/day</p>
       <p>{district.city}</p>
       <p>{district.state}</p>

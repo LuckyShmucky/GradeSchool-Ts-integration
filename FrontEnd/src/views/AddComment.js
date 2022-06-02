@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 
-function AddCommentForm(id) {
+function AddCommentForm(props) {
     const [content, setContent] = useState('')
     const [author, setAuthor] = useState('Anonymous')
     const [stars, setStars] = useState(3)
     const handleClick = async () => {
-        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${id}`, {
+        const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${props.id}`, {
         method: 'POST',
         mode: 'cors',
         headers: {
