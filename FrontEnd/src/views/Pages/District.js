@@ -1,7 +1,7 @@
 import { list } from "postcss";
 import React, {useState, useEffect} from "react";
 import {Link, Outlet } from 'react-router-dom';
-import Star from '../../components/Rating'
+import DistrictStars from "../../components/DistrictRating";
 import NavBar from "../NavBar";
 import Footer from "../Footer"
 
@@ -39,7 +39,7 @@ const deleteDistrict = async (districtId) =>{
       <h1>
         <Link to={`/district-show-page/${district.id}`}>{district.name}</Link>
       </h1>
-      <Star id={district.id}/>
+      <DistrictStars id={district.id}/>
       <img
         placeholder="https://placekitten.com/300/300"
       />

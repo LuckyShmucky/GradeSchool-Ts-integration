@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddComment from '../AddComment';
+import AddDistrictCommentForm from "../AddDistrictComment";
 import {Link, Outlet, useParams} from 'react-router-dom';
-import Star from '../../components/Rating';
+import DistrictStars from "../../components/DistrictRating";
 import NavBar from "../NavBar";
 import Footer from "../Footer"
 
@@ -34,7 +34,7 @@ const ShowDistrict = () => {
       <NavBar />
       <h1>{district.name}</h1>
       <img src={district.image} />
-      <Star id={districtParams.districtId}/>
+      <DistrictStars id={districtParams.districtId}/>
       <p>${district.salary}/day</p>
       <p>{district.city}</p>
       <p>{district.state}</p>
@@ -42,7 +42,7 @@ const ShowDistrict = () => {
       {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}       <Link to={{pathname:"/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
       <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button></div>)}
-      <AddComment id={districtParams.districtId}/>
+      <AddDistrictCommentForm id={districtParams.districtId}/>
       <Footer />
     </div>
   );
