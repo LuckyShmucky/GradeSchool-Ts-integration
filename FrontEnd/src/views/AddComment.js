@@ -18,6 +18,8 @@ function AddCommentForm(props) {
         })
     })
 const string =  await response.json()
+console.log(string)
+console.log(props)
 }
     return (
         <div className='comment-add'>
