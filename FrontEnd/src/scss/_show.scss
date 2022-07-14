@@ -1,0 +1,7 @@
+@import "globals";
+
+@mixin show-page {
+    display: $display;
+    justify-content: center;
+    flex-wrap: wrap;
+}

@@ -1,4 +1,5 @@
-import "./App.css";
+//import "./App.css";
+import "./css/style.css"
 import NavBar from "./views/NavBar";
 import Main from "./views/Main";
 import Footer from "./views/Footer";
