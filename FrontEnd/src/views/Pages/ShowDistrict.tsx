@@ -8,7 +8,14 @@ import Footer from "../Footer"
 
 const ShowDistrict = () => {
     const districtParams = useParams()
-    const [district, setDistrict] = useState({})
+    const [district, setDistrict] = useState({
+      name: '',
+      image: '',
+      salary: '',
+      city: '',
+      state: '',
+      comments: []
+    })
     const getDistrict = async () => {
           const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtParams.districtId}`)
           const myDistrict = await response.json();
@@ -17,7 +24,7 @@ const ShowDistrict = () => {
         }
     
     //Delete Event
-    const handleDelete = async (e) => {
+    const handleDelete = async (e:any) => {
     e.preventDefault()
     const deleteResponse = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/deleteCommets/${districtParams.districtId}`, {
     method: 'DELETE',
@@ -39,7 +46,7 @@ const ShowDistrict = () => {
       <p>{district.city}</p>
       <p>{district.state}</p>
       <h1>Add Comments</h1>
-      {district.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}       <Link to={{pathname:"/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
+      {district.comments?.map((comment:any) => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}       <Link to={"/edit-comment"} state={{stateParam: true }}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
       <Outlet />
       <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button></div>)}
       <AddDistrictCommentForm id={districtParams.districtId}/>

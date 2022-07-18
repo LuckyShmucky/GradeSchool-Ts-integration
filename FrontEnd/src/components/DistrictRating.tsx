@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 
-const DistrictStars = (props) => {
+const DistrictStars = (props: any) => {
   // const [stars, setStars] = useState([]) 
   const [starArr, setStarArr] = useState([]) 
-  const initialStarArr = []
+  
+  let initialStarArr: any
 const [rating, setRating] = useState('Not yet Rated')
   // this runs on mount
 useEffect(() =>{
@@ -21,7 +22,7 @@ useEffect(() =>{
       console.log(props)
       console.log(districtPopulated)
      //mapping out all the comments and pushing the stars number to initialStarArr
-      districtPopulated.data.comments.map(comment => {
+      districtPopulated.data.comments.map(function(comment:any) {
         initialStarArr.push(comment.stars)
       })
       //setting state to the array with all the pushed numbers

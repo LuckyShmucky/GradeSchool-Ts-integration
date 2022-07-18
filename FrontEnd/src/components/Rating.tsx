@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 
-const Stars = (props) => {
+const Stars = (props:any) => {
   // const [stars, setStars] = useState([]) 
   const [starArr, setStarArr] = useState([]) 
-  const initialStarArr = []
+  let initialStarArr: any
 const [rating, setRating] = useState('Not yet Rated')
   // this runs on mount
 useEffect(() =>{
@@ -21,7 +21,7 @@ useEffect(() =>{
       console.log(props)
       console.log(schoolPopulated)
      //mapping out all the comments and pushing the stars number to initialStarArr
-      schoolPopulated.data.comments.map(comment => {
+      schoolPopulated.data.comments.map(function(comment:any){
         initialStarArr.push(comment.stars)
       })
       //setting state to the array with all the pushed numbers

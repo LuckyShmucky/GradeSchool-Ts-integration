@@ -7,11 +7,11 @@ import Footer from "../Footer"
 
 const District = () => {
 const [listOfDistricts, setListOfDistricts] = useState([])
-const [totalDistricts, setTotalDistricts] = useState(undefined)
+const [totalDistricts, setTotalDistricts] = useState(0)
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{ 
 
-  const getAllDistricts = async () => {
+  const getAllDistricts = async ():Promise<void> =>  {
     const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts`)
     const allDistricts = await response.json();
     const foundDistricts =  allDistricts.data
@@ -22,7 +22,7 @@ useEffect(() =>{
   getAllDistricts()
 }, [])
 
-const deleteDistrict = async (districtId) =>{
+const deleteDistrict = async (districtId:any) =>{
   const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts/${districtId}`,{
     method: 'DELETE',
     mode: 'cors',
@@ -32,7 +32,7 @@ const deleteDistrict = async (districtId) =>{
   })
   const deletedDistrict = await response.json()
 }
-  const districtNamesMapped = listOfDistricts.map((district, key) => {
+  const districtNamesMapped = listOfDistricts.map((district: any, key: any) => {
     return(
     <div className="card" key={key} >
     <div className="district-content" >
@@ -46,7 +46,7 @@ const deleteDistrict = async (districtId) =>{
      
         <Link to={{
           pathname: `/edit-district-review/${district.id}`,
-          state: {stateParam: true }
+          // state: {stateParam: true }
         }}>
           <button
             type="submit"

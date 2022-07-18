@@ -7,7 +7,7 @@ import Footer from "../Footer";
 
 const School = () => {
 const [listOfSchools, setListOfSchools] = useState([])
-const [totalSchools, setTotalSchools] = useState(undefined)
+const [totalSchools, setTotalSchools] = useState(0)
 
 //this use effect makes enables the page to fetch all the schools on mount 
 useEffect(() =>{
@@ -22,7 +22,7 @@ useEffect(() =>{
   getAllSchools()
 }, [])
 
-  const deleteSchool = async (schoolId) =>{
+  const deleteSchool = async (schoolId:any) =>{
     const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${schoolId}`,{
       method: 'DELETE',
       mode: 'cors',
@@ -33,7 +33,7 @@ useEffect(() =>{
     const deletedSchool = await response.json()
   }
 
-  const schoolNamesMapped = listOfSchools.map((school, key) => {
+  const schoolNamesMapped = listOfSchools.map((school:any, key) => {
     return(
     <div className="card" key={key} >
     <div className="school-content row-auto">
@@ -46,10 +46,8 @@ useEffect(() =>{
       />
       <div className="schoolContent">
      
-        <Link to={{
-          pathname: `/edit-school-review/${school.id}`,
-          state: {stateParam: true }
-        }}>
+        <Link to={`/edit-school-review/${school.id}`}
+          state={{stateParam: true }}>
           <button
             type="submit"
             style={{

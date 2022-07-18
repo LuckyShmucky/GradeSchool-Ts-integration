@@ -55,7 +55,7 @@ const Edit = () => {
                 </div>
                 <div className="row edit-content" style={{marginBottom: '25px'}}>
                   <label htmlFor="salary" style={{marginRight: '25px'}}>Substitute Salary Per Day</label>
-                  <input type='number' min='50' max='10000' required className="form-control" name='salary' id='salary' onChange={(e) => setSalary(e.target.value)} />
+                  <input type='number' min='50' max='10000' required className="form-control" name='salary' id='salary' onChange={(e) => setSalary(parseInt(e.target.value))} />
                 </div>
                 <input className='editBtn' type='submit' value='Save Changes' 
                 onClick={e => {

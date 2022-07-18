@@ -8,7 +8,16 @@ import Footer from "../Footer";
 
 const Show = () => {
   const schoolParams = useParams()
-  const [school, setSchool] = useState({})
+  const [school, setSchool] = useState({
+    name: '',
+    image: '',
+    level: '',
+    district: '',
+    city: '',
+    state: '',
+    comments: []
+
+  })
 
   const getSchool = async () => {
       const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/${schoolParams.schoolId}`)
@@ -18,7 +27,7 @@ const Show = () => {
       setSchool(foundSchool)
     }
 //Delete Event
-  const handleDelete = async (e) => {
+  const handleDelete = async (e:any) => {
     e.preventDefault()
     const deleteResponse = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools/deleteCommets/:${schoolParams.schoolId}`, {
     method: 'DELETE',
@@ -43,9 +52,27 @@ const Show = () => {
           <p>{school.city}</p>
           <p>{school.state}</p>
           <h1>Add Comments</h1>
-          {school.comments?.map(comment => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}           <Link to={{pathname: "/edit-comment", state: {stateParam: true }}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button></Link>
+       
+          {/* {school.comments?.map(function(comment:any){
+            <>
+              <div style={{padding: '10px'}}>
+                {comment.content}    {comment.author}    {comment.stars} 
+              </div>
+              <Link to={"/edit-comment"} state={{stateParam: true}}>
+              <button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Edit Comment</button>
+              </Link>
+            <Outlet />
+              <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button>
+              
+            </>
+          })} */}
+           {school?.comments?.map((comment:any) => <div style={{padding: '10px'}}>{comment.content}    {comment.author}    {comment.stars}   
+           <Link to={{pathname: "/edit-comment"}}><button type="submit" style={{borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>
+            Edit Comment</button>
+            </Link>
           <Outlet />
           <button type="submit" onClick={handleDelete} style={{marginLeft:'10px', borderRadius: '20px', padding: '10px', marginBottom: '25px'}}>Delete Comment</button></div>)}
+         
           <AddComment id={schoolParams.schoolId}/>
           <Footer />
     </div>

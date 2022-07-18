@@ -53,7 +53,7 @@ console.log(newDistrict)
                 </div>
                 <div>
                     <label htmlFor='salary' style={{marginRight: '165px'}}>Salary</label>
-                    <input name='salary' id='salary' className='form-control' onChange={event => setSalary(event.target.value)} type='number' min='50' max='10000' required/>
+                    <input name='salary' id='salary' className='form-control' onChange={event => setSalary(parseInt(event.target.value))} type='number' min='50' max='10000' required/>
                 </div>
                 <input style={{borderRadius: '20px', padding: '10px', marginBottom: '25px', marginTop: '25px'}} type='submit' value='Add District' onClick={event => {
                      event.preventDefault()
