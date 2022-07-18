@@ -1,0 +1,10 @@
+@import "globals";
+
+@function set-border($pos) {
+    @if($pos == 'footer'){
+        @return 1px solid #{$border-color};
+    } 
+    @else {
+        @return 1px solid #{$border-color};
+    }
+}

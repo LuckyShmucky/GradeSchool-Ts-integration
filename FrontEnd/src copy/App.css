@@ -1,0 +1,121 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  height: 100vh;
+  background-color: #fcf0cc;
+  color: #d86fa3;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.nav li {
+  width: 18vw;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.nav {
+  border-bottom: 1px solid black;
+}
+.nav a:hover {
+  color: blueviolet;
+}
+.nav a {
+  text-decoration: none;
+  color: #d86fa3;
+}
+.footer {
+  border-top: 1px solid black;
+}
+.main h1 {
+  font-family: "Dancing Script", cursive;
+}
+
+.main img {
+  width: 100vw;
+}
+/* district styling */
+.districtPage {
+  height: 100vh;
+}
+
+/* district styling */
+/* district/school card */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 30rem;
+  padding: 0%;
+  height: 30%;
+  margin-bottom: 1rem;
+  margin-left: 5px;
+}
+
+
+.district {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.school {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+
+/* Edit School Page */
+
+.edit-page {
+  height: 50vh;
+}
+
+
+
+

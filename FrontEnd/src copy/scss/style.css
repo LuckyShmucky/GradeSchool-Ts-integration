@@ -1,0 +1,97 @@
+body {
+  height: 100vh;
+  background-color: #fcf0cc;
+  color: #d86fa3;
+  text-align: center;
+  text-decoration: none;
+}
+
+body .nav {
+  border-bottom: 1px solid black;
+}
+
+body .nav ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+body .nav li {
+  width: 18vw;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+body .nav a {
+  text-decoration: none;
+  color: #d86fa3;
+}
+
+body .nav a:hover {
+  color: blueviolet;
+}
+
+body .footer {
+  border-top: 1px solid black;
+}
+
+body .main img {
+  width: 100vw;
+}
+
+body .main h1 {
+  font-family: "Dancing Script", cursive;
+}
+
+body .districtPage {
+  height: 100vh;
+}
+
+body .edit-page {
+  height: 50vh;
+}
+
+body button {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+body .card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 30rem;
+  padding: 0%;
+  height: 30%;
+  margin-bottom: 1rem;
+  margin-left: 5px;
+}
+
+body .district {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body .school {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=style.css.map */

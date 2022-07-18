@@ -1,0 +1,63 @@
+@import "border";
+@import "button";
+@import "card";
+@import "globals";
+@import "show";
+
+body {
+    height: 100vh;
+    background-color: $background-color;
+    color: $text-color;
+    text-align: $text-align;
+    text-decoration: $text-decoration;
+    & .nav {
+        border-bottom: set-border('nav');
+        & ul {
+           list-style-type: $list-style;
+           display: $display;
+           justify-content: space-evenly;
+        }
+        & li {
+            width: 18vw;
+            padding-top: 25px;
+            padding-bottom: 50px;
+            text-align: $text-align;
+        }
+        & a {
+            text-decoration: $text-decoration;
+            color: $text-color;
+        }
+        & a:hover {
+            color: $hover-color;
+        }
+    }
+    & .footer {
+        border-top: set-border('footer');
+    }
+    & .main {
+        & img {
+            width: 100vw;
+        }
+        & h1 {
+            font-family: $preferred-font, $backup-font;
+        }
+    }
+    & .districtPage {
+        height: 100vh;
+    }
+    & .edit-page {
+        height: 50vh;
+    }
+    & button {
+        @include button;
+    }
+    & .card {
+        @include card;
+    }
+    & .district {
+        @include show-page;
+    }
+    & .school {
+        @include show-page;
+    }
+}
