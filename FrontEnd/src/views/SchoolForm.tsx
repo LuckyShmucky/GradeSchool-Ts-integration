@@ -10,7 +10,7 @@ function School_Form () {
    const [level, setLevel] = useState('Elementary')
    const [district, setDistrict] = useState('District')
 
-    const createSchool = async () => {
+    const createSchool = async (): Promise<void> => {
         const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/schools`, {
         method: 'POST',
         mode: 'cors',

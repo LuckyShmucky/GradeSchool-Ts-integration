@@ -10,7 +10,7 @@ function District_Form() {
    const [salary, setSalary] = useState(50)
 
 
-    const createDistrict = async () => {
+    const createDistrict = async (): Promise<void> => {
         const response = await fetch(`https://back-end-for-grade-school.herokuapp.com/districts`, {
         method: 'POST',
         mode: 'cors',
