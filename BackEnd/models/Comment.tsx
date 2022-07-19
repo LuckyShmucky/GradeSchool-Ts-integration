@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-
+// const mongoose = require('mongoose')
+import mongoose from "mongoose"
 
 const CommentSchema = new mongoose.Schema ({
     author: {type: String, default: "Anonymous"},
@@ -7,5 +7,5 @@ const CommentSchema = new mongoose.Schema ({
     stars: { type: Number, required: true}
 })
 
-const Comment = mongoose.model('Comment', CommentSchema)
+export const Comment = mongoose.model('Comment', CommentSchema)
 module.exports = Comment

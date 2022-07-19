@@ -3,11 +3,13 @@ const path = require('path')
 
 require('dotenv').config()
 // require('dotenv').config({ path: '../backend/.env' });
-const express = require('express')
-const mongoose = require('mongoose')
+// const express = require('express')
+import express from "express"
+import mongoose from "mongoose"
+// const mongoose = require('mongoose')
 const app = express()
 const cors = require('cors')
-mongoose.connect('mongodb+srv://Christian:Fc5E1NDTDndOVR6P@myfirstcluster.zfxo9.mongodb.net/GradeSchool', {useNewUrlParser: true, useUnifiedTopology: true}, 
+mongoose.connect('mongodb+srv://Christian:Fc5E1NDTDndOVR6P@myfirstcluster.zfxo9.mongodb.net/GradeSchool', 
     function(){ console.log('connected to mongoDB ') }
   )
 
@@ -23,17 +25,17 @@ app.use('/schools', require('./controllers/SchoolController'))
 
 
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
     res.status(200).json({
         message: 'Welcome to Grade School!'
     })
 })
 
-app.get('/districts', (req, res) =>{
+app.get('/districts', (req: express.Request, res: express.Response) =>{
     console.log('hello')
 })
 
-app.get('/schools', (req, res) =>{
+app.get('/schools', (req: express.Request, res: express.Response) =>{
     try {
         res.status(200).json({
             message: "You've hit the school route"
@@ -43,7 +45,7 @@ app.get('/schools', (req, res) =>{
     }
 })
 
-app.get('*', (req, res) =>{
+app.get('*', (req: express.Request, res: express.Response) =>{
     res.render('error')
 })
 

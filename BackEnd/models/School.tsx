@@ -23,7 +23,7 @@ const schoolSchema = new Schema ({
         }]   
 }, {toJSON: {virtuals: true}})
 
-const School = mongoose.model('School', schoolSchema)
+export const School = mongoose.model('School', schoolSchema)
 module.exports = School
 module.exports.School = require('./School')
 module.exports.Comment = require('./Comment')
