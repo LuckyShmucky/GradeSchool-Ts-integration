@@ -29,7 +29,7 @@ Substitute teachers are independent contractors. As such they have no union and 
 - Express 
 - Cors
 
-# Backend API urls Docs
+## Backend API endpoints
 
 - Root URL that returns message in the form of json letting you know you've hit the correct URL
 ```
@@ -81,3 +81,8 @@ fetch('https://back-end-for-grade-school.herokuapp.com/districts/deleteComments/
 ```
 fetch('https://back-end-for-grade-school.herokuapp.com/districts/updateComment/:id')
 ```
+
+## Current Issues
+- Integrating Typescript has prevented the app from running but has easy fixes
+- Back end routes are some what repetitive (especially when it comes to complete CRUD actions with comments)
+- Comments might need their own controller
