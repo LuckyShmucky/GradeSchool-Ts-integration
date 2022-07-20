@@ -3,7 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//Dependencies
 require('dotenv').config();
+const path = require('path')
 // require('dotenv').config({ path: '../backend/.env' });
 var express_1 = __importDefault(require("express"));
 var mongoose_1 = __importDefault(require("mongoose"));
@@ -17,8 +19,8 @@ app.use((0, cors_1.default)({
 app.use(express_1.default.json());
 app.use(express_1.default.static('public'));
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use('/districts', require('./controllers/DistrictController'));
-app.use('/schools', require('./controllers/SchoolController'));
+app.use('/districts', require('./build/controllers/DistrictController'));
+app.use('/schools', require('./build/controllers/SchoolController'));
 app.get('/', function (req, res) {
     res.status(200).json({
         message: 'Welcome to Grade School!'
@@ -40,6 +42,13 @@ app.get('/schools', function (req, res) {
 app.get('*', function (req, res) {
     res.render('error');
 });
+
+// serve static front end in production mode
+if (process.env.NODE_ENV === "production") {
+    console.log('production')
+    app.use(express_1.static(path.join(__dirname, 'client', 'build')));
+}
+
 app.listen(process.env.PORT, function () {
     console.log('server is running');
 });
