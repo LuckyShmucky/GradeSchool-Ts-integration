@@ -40,14 +40,13 @@ fetch('https://back-end-for-grade-school.herokuapp.com')
 ```
 fetch('https://back-end-for-grade-school.herokuapp.com/schools')
 ```
-- route that lets you find a school by its name (name must be added after searchNames) example: schools/searchName/school-name
 
 - route allows you to find a school by id and update or delete it 
 
 ```
 fetch('https://back-end-for-grade-school.herokuapp.com/schools/:id')
-
 ```
+- route that lets you find a school by its name (name must be added after searchNames) example: schools/searchName/school-name
 ```
 fetch('https://back-end-for-grade-school.herokuapp.com/schools/
 searchNames')
