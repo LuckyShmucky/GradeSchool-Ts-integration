@@ -8,6 +8,8 @@ require('dotenv').config();
 const path = require('path')
 // require('dotenv').config({ path: '../backend/.env' });
 var express_1 = __importDefault(require("express"));
+
+console.log(express_1.static)
 var mongoose_1 = __importDefault(require("mongoose"));
 var app = (0, express_1.default)();
 var cors_1 = __importDefault(require("cors"));
